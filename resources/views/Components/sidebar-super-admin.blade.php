@@ -3,7 +3,7 @@
         <div class="mt-8 text-center">
             <img src="https://www.sman10pentagonkaur.sch.id/wp-content/uploads/2020/03/logo.png" alt="" class=" m-auto rounded-full object-cover lg:w-36 lg:h-36">
         </div>
-        <ul class="">
+        <ul class="mt-12">
             <div class="">
                 <li>
                     <a href="/" aria-label="dashboard" class="relative px-4 py-1 flex items-center space-x-4 rounded-xl text-white ">
@@ -32,7 +32,8 @@
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
                 </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                {{-- tambahkan hidden class ul (menutup/buka dropdown) --}}
+                <ul id="dropdown-example" class="py-2 space-y-2"> 
                     <li>
                         <a href="/PemasukanSuperAdmin" class="flex items-center w-full p-2 text-base font-normal text-white pl-11">Pemasukan</a>
                     </li>

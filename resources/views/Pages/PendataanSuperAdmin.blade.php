@@ -38,7 +38,7 @@
                         </tr>
                     </thead>
                     <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
-                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 30vh;">
+                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height:;">
                         <tr class="flex w-full max-h-10 items-center border-b-2 border-gray">
                             <td class="p-4 w-20">1</td>
                             <td class="p-4 w-96">Muhammad Alfahmi Irfan</td>

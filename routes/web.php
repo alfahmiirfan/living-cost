@@ -43,6 +43,12 @@ Route::get('/Pendataan-UbahSuperAdmin', function () {
 Route::get('/PengelolaanAdminSuperAdmin', function () {
     return view('Pages/PengelolaanAdminSuperAdmin');
 });
+Route::get('/PengelolaanAdmin-TambahSuperAdmin', function () {
+    return view('Pages/PengelolaanAdmin-TambahSuperAdmin');
+});
+Route::get('/PengelolaanAdmin-UbahSuperAdmin', function () {
+    return view('Pages/PengelolaanAdmin-UbahSuperAdmin');
+});
 Route::get('/LaporanSuperAdmin', function () {
     return view('Pages/LaporanSuperAdmin');
 });
