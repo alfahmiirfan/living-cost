@@ -52,5 +52,8 @@ Route::get('/PengelolaanAdmin-UbahSuperAdmin', function () {
 Route::get('/LaporanSuperAdmin', function () {
     return view('Pages/LaporanSuperAdmin');
 });
+Route::get('/Laporan-LihatSuperAdmin', function () {
+    return view('Pages/Laporan-LihatSuperAdmin');
+});
 
 

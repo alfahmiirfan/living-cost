@@ -12,7 +12,7 @@
         <x-navbar-super-admin title="Pendataan Siswa" />
         <div class="flex">
             <x-search-super-admin />
-            <div class="pl-[890px]">
+            <div class="absolute top-30 right-10 flex justify-between items-center rounded-md">
                 <a href="Pendataan-TambahSuperAdmin">
                     <button type="button" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,11 +30,11 @@
                 <table class="table-fixed text-left w-full">
                     <thead class="bg-yale-blue flex text-white w-full">
                         <tr class="flex w-full max-h-10 items-center">
-                            <th class="p-4 w-40">No</th>
-                            <th class="p-4 w-96">Nama</th>
-                            <th class="p-4 w-1/4">NISN</th>
-                            <th class="p-4 w-1/4">Angkatan</th>
-                            <th class="p-4 w-1/4">Aksi</th>
+                            <th class="p-4 w-[5%]">No</th>
+                            <th class="p-4 w-[%]">Nama</th>
+                            <th class="p-4 w-[%]">NISN</th>
+                            <th class="p-4 w-[%]">Angkatan</th>
+                            <th class="p-4 w-[%]">Aksi</th>
                         </tr>
                     </thead>
                     <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
