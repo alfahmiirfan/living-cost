@@ -45,63 +45,116 @@
                 </div>
             </div>
         </div>
-        <div class="tab">
-            <div class="">
-                <table class="table-fixed text-left w-full">
-                    <thead class="bg-yale-blue flex text-white w-full">
-                        <tr class="flex w-full max-h-10 items-center">
-                            <th class="p-4 w-40">No</th>
-                            <th class="p-4 w-96">Nama</th>
-                            <th class="p-4 w-1/4">NISN</th>
-                            <th class="p-4 w-1/4">Angkatan</th>
-                            <th class="p-4 w-1/4">Aksi</th>
-                        </tr>
-                    </thead>
-                    <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
-                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 30vh;">
-                        <tr class="flex w-full max-h-10 items-center border-b-2 border-gray">
-                            <td class="p-4 w-20">1</td>
-                            <td class="p-4 w-96">Muhammad Alfahmi Irfan</td>
-                            <td class="p-4 w-1/4">0123456789</td>
-                            <td class="p-4 w-1/4">2020</td>
-                            <td class="p-4 w-1/4">15/05/2024
-                            </td>
-                        </tr>
-                        <tr class="flex w-full max-h-10 items-center border-b-2 border-gray">
-                            <td class="p-4 w-20">2</td>
-                            <td class="p-4 w-96">Muhammad Alfahmi Irfan</td>
-                            <td class="p-4 w-1/4">0123456789</td>
-                            <td class="p-4 w-1/4">2021</td>
-                            <td class="p-4 w-1/4">15/05/2024
-                            </td>
-                        </tr>
-                        <tr class="flex w-full max-h-10 items-center border-b-2 border-gray">
-                            <td class="p-4 w-20">3</td>
-                            <td class="p-4 w-96">Muhammad Alfahmi Irfan</td>
-                            <td class="p-4 w-1/4">0123456789</td>
-                            <td class="p-4 w-1/4">2022</td>
-                            <td class="p-4 w-1/4">15/05/2024
-                            </td>
-                        </tr>
-                        <tr class="flex w-full max-h-10 items-center border-b-2 border-gray">
-                            <td class="p-4 w-20">4</td>
-                            <td class="p-4 w-96">Muhammad Alfahmi Irfan</td>
-                            <td class="p-4 w-1/4">0123456789</td>
-                            <td class="p-4 w-1/4">2023</td>
-                            <td class="p-4 w-1/4">15/05/2024
-                            </td>
-                        </tr>
-                        <tr class="flex w-full max-h-10 items-center border-b-2 border-gray">
-                            <td class="p-4 w-20">5</td>
-                            <td class="p-4 w-96">Muhammad Alfahmi Irfan</td>
-                            <td class="p-4 w-1/4">0123456789</td>
-                            <td class="p-4 w-1/4">2024</td>
-                            <td class="p-4 w-1/4">15/05/2024
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        {{-- Table --}}
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right">
+                <thead class="text-sm text-white uppercase bg-yale-blue dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            No
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nama
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            NISN
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Bulan
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Tanggal Upload
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
+                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            1
+                        </th>
+                        <td class="px-6 py-2">
+                            Muhammad Alfahmi Irfan
+                        </td>
+                        <td class="px-6 py-2">
+                            0123456789
+                        </td>
+                        <td class="px-6 py-2">
+                            November
+                        </td>
+                        <td class="px-6 py-2">
+                            15/05/2024
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            2
+                        </th>
+                        <td class="px-6 py-2">
+                            Muhammad Alfahmi Irfan
+                        </td>
+                        <td class="px-6 py-2">
+                            0123456789
+                        </td>
+                        <td class="px-6 py-2">
+                            November
+                        </td>
+                        <td class="px-6 py-2">
+                            15/05/2024
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            3
+                        </th>
+                        <td class="px-6 py-2">
+                            Muhammad Alfahmi Irfan
+                        </td>
+                        <td class="px-6 py-2">
+                            0123456789
+                        </td>
+                        <td class="px-6 py-2">
+                            November
+                        </td>
+                        <td class="px-6 py-2">
+                            15/05/2024
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            4
+                        </th>
+                        <td class="px-6 py-2">
+                            Muhammad Alfahmi Irfan
+                        </td>
+                        <td class="px-6 py-2">
+                            0123456789
+                        </td>
+                        <td class="px-6 py-2">
+                            November
+                        </td>
+                        <td class="px-6 py-2">
+                            15/05/2024
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            5
+                        </th>
+                        <td class="px-6 py-2">
+                            Muhammad Alfahmi Irfan
+                        </td>
+                        <td class="px-6 py-2">
+                            0123456789
+                        </td>
+                        <td class="px-6 py-2">
+                            November
+                        </td>
+                        <td class="px-6 py-2">
+                            15/05/2024
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </x-layout-super-admin>
     <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
