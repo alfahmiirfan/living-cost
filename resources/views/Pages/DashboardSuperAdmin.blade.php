@@ -25,7 +25,7 @@
                                             <circle cx="6" cy="5" r="3" />
                                         </svg>
                                     </div>
-                                    <div class="mt-8">
+                                    <div class="pt-8">
                                         <p class="text-white text-base tracking-wide">Pengelolaan Keuangan</p>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                             <circle cx="12" cy="8" r="5" />
                                             <path d="M20 21a8 8 0 0 0-16 0" /></svg>
                                     </div>
-                                    <div class="mt-8">
+                                    <div class="pt-8">
                                         <p class="text-white text-base tracking-wide">Pendataan Siswa</p>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                             <path d="m16.9 15.2-.4-.9" />
                                         </svg>
                                     </div>
-                                    <div class="mt-8">
+                                    <div class="pt-8">
                                         <span class="text-white">Pengelolaan Admin</span>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                             <path d="M8 11h8" />
                                         </svg>
                                     </div>
-                                    <div class="mt-8">
+                                    <div class="pt-8">
                                         <span class="text-white">Laporan Keuangan</span>
                                     </div>
                                 </div>

@@ -147,7 +147,7 @@
                             15/05/2024
                         </td>
                         <td class="px-6 py-2">
-                            <span class="inline-flex items-center rounded-md bg-[#F72323] px-[18px]   py-2 text-xs font-medium text-black ring-1 ring-inset ring-red-600/10">Telat Bayar</span>>
+                            <span class="inline-flex items-center rounded-md bg-[#F72323] px-[18px]   py-2 text-xs font-medium text-black ring-1 ring-inset ring-red-600/10">Telat Bayar</span>
                         </td>
                     </tr>
                 </tbody>
