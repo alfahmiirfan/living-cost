@@ -14,46 +14,54 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Pages/DashboardSuperAdmin');
+    return view('Pages/SuperAdmin/DashboardSuperAdmin');
 });
 Route::get('/PemasukanSuperAdmin', function () {
-    return view('Pages/PemasukanSuperAdmin');
+    return view('Pages/SuperAdmin/PemasukanSuperAdmin');
 });
 Route::get('/Pemasukan-StatusSuperAdmin', function () {
-    return view('Pages/Pemasukan-StatusSuperAdmin');
+    return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');
 });
 Route::get('/PengeluaranSuperAdmin', function () {
-    return view('Pages/PengeluaranSuperAdmin');
+    return view('Pages/SuperAdmin/PengeluaranSuperAdmin');
 });
 Route::get('/Pengeluaran-TambahSuperAdmin', function () {
-    return view('Pages/Pengeluaran-TambahSuperAdmin');
+    return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin');
 });
 Route::get('/Pengeluaran-UbahSuperAdmin', function () {
-    return view('Pages/Pengeluaran-UbahSuperAdmin');
+    return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin');
 });
 Route::get('/PendataanSiswaSuperAdmin', function () {
-    return view('Pages/PendataanSuperAdmin');
+    return view('Pages/SuperAdmin/PendataanSuperAdmin');
 });
 Route::get('/Pendataan-TambahSuperAdmin', function () {
-    return view('Pages/Pendataan-TambahSuperAdmin');
+    return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin');
 });
 Route::get('/Pendataan-UbahSuperAdmin', function () {
-    return view('Pages/Pendataan-UbahSuperAdmin');
+    return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin');
 });
 Route::get('/PengelolaanAdminSuperAdmin', function () {
-    return view('Pages/PengelolaanAdminSuperAdmin');
+    return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin');
 });
 Route::get('/PengelolaanAdmin-TambahSuperAdmin', function () {
-    return view('Pages/PengelolaanAdmin-TambahSuperAdmin');
+    return view('Pages/SuperAdmin/PengelolaanAdmin-TambahSuperAdmin');
 });
 Route::get('/PengelolaanAdmin-UbahSuperAdmin', function () {
-    return view('Pages/PengelolaanAdmin-UbahSuperAdmin');
+    return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin');
 });
 Route::get('/LaporanSuperAdmin', function () {
-    return view('Pages/LaporanSuperAdmin');
+    return view('Pages/SuperAdmin/LaporanSuperAdmin');
 });
 Route::get('/Laporan-LihatSuperAdmin', function () {
-    return view('Pages/Laporan-LihatSuperAdmin');
+    return view('Pages/SuperAdmin/Laporan-LihatSuperAdmin');
 });
-
-
+//Auth
+Route::get('/LoginSuperAdmin', function () {
+    return view('Pages/LoginSuperAdmin');
+});
+Route::get('/LupaPasswordSuperAdmin', function () {
+    return view('Pages/LupaPasswordSuperAdmin');
+});
+Route::get('/OtpSuperAdmin', function () {
+    return view('Pages/OtpSuperAdmin');
+});
