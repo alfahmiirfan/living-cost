@@ -75,20 +75,8 @@
                                         <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.929688" width="30" height="30" rx="5" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.930176" width="30" height="30" rx="5" fill="#F72323" />
-                                        <path d="M21.9302 9L9.93018 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M9.93018 9L21.9302 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+                                <x-pop-up-acc/>
+                                <x-pop-up-delete/>
                             </div>
                         </td>
                     </tr>
@@ -117,20 +105,8 @@
                                         <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.929688" width="30" height="30" rx="5" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.930176" width="30" height="30" rx="5" fill="#F72323" />
-                                        <path d="M21.9302 9L9.93018 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M9.93018 9L21.9302 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+                                <x-pop-up-acc/>
+                                <x-pop-up-delete/>
                             </div>
                         </td>
                     </tr>
@@ -159,20 +135,8 @@
                                         <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.929688" width="30" height="30" rx="5" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.930176" width="30" height="30" rx="5" fill="#F72323" />
-                                        <path d="M21.9302 9L9.93018 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M9.93018 9L21.9302 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+                                <x-pop-up-acc/>
+                                <x-pop-up-delete />
                             </div>
                         </td>
                     </tr>
@@ -201,20 +165,8 @@
                                         <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.929688" width="30" height="30" rx="5" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.930176" width="30" height="30" rx="5" fill="#F72323" />
-                                        <path d="M21.9302 9L9.93018 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M9.93018 9L21.9302 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+                                <x-pop-up-acc/>
+                                <x-pop-up-delete />
                             </div>
                         </td>
                     </tr>
@@ -243,20 +195,8 @@
                                         <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.929688" width="30" height="30" rx="5" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" fill="#32D62F" />
-                                        <path d="M25.4683 9L13.2316 20L7.66943 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#">
-                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.930176" width="30" height="30" rx="5" fill="#F72323" />
-                                        <path d="M21.9302 9L9.93018 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M9.93018 9L21.9302 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+                                <x-pop-up-acc/>
+                                <x-pop-up-delete />
                             </div>
                         </td>
                     </tr>
