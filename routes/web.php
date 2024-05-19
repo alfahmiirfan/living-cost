@@ -62,6 +62,9 @@ Route::get('/LoginSuperAdmin', function () {
 Route::get('/LupaPasswordSuperAdmin', function () {
     return view('Pages/LupaPasswordSuperAdmin');
 });
+Route::get('/NewPasswordSuperAdmin', function () {
+    return view('Pages/NewPasswordSuperAdmin');
+});
 Route::get('/OtpSuperAdmin', function () {
     return view('Pages/OtpSuperAdmin');
 });
