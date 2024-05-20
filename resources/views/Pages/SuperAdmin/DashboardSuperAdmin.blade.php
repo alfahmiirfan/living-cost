@@ -5,6 +5,26 @@
     <title>Dashboard Super Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <style>
+        @keyframes moving-border {
+            0% {
+                border-color: white;
+            }
+
+            50% {
+                border-color: #297785;
+            }
+
+            100% {
+                border-color: white;
+            }
+        }
+
+        #moving-border {
+            animation: moving-border 3s infinite;
+        }
+
+    </style>
 </head>
 <body>
     <x-layout-super-admin>
@@ -89,12 +109,47 @@
                 </div>
                 <div class="flex-grow pl-6 overflow-auto bg-gray">
                     <div class="grid grid-cols-2 gap-4">
-                        <a href="#">
-                            <div class="mt-3 col-end-7 col-span-2 h-96 w-72 rounded-md bg-yale-blue">
+                        <a>
+                            <div class="mt-3 col-end-7 col-span-2 w-72 rounded-md bg-[#F0F2F8] border-4 border-yale-blue " id="moving-border">
+                                <div class="rounded-lg overflow-hidden  h-96 flex m-auto items-center ">
+                                    <canvas class="tetx-white" id="chartDoughnut"></canvas>
+                                </div>
+                                <!-- Required chart.js -->
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <!-- Chart doughnut -->
+                                <script>
+                                    const dataDoughnut = {
+                                        labels: ["Pelunasan", "Belum Bayar", "Telat Bayar"]
+                                        , datasets: [{
+                                            label: "Jumlah "
+                                            , data: [70, 30, 25]
+                                            , backgroundColor: [
+                                                "#32D62F"
+                                                , "#F5E81D"
+                                                , "#F72323"
+                                            , ]
+                                            , borderColor: [
+                                                "#F0F2F8"
+                                            ]
+                                            , hoverOffset: 4
+                                        , }, ]
+                                    , };
+                                    const configDoughnut = {
+                                        type: "doughnut"
+                                        , data: dataDoughnut
+                                        , options: {}
+                                    , };
+                                    var chartBar = new Chart(
+                                        document.getElementById("chartDoughnut")
+                                        , configDoughnut
+                                    );
+
+                                </script>
                             </div>
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </x-layout-super-admin>
