@@ -38,105 +38,57 @@
                             No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Nama
+                            Nama Item
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            NISN
+                            Kategori
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Bulan
+                            Jumlah
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Tanggal Upload
+                            Harga
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Tanggal
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                        $dummyData = [
+                            [
+                            'no' => 1,
+                            'namaItem' => 'Ayam Kampung',
+                            'kategori' => 'Pangan',
+                            'jumlah' => 'alfahmiirfan',
+                            'harga' => '123456',
+                            'tanggal' => '22/05/2024',
+                            ],
+                            ];
+                                ?>
+                    <?php foreach ($dummyData as $index => $data): ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            1
+                            <?=$data['no']?>
                         </th>
                         <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
+                            <?=$data['namaItem']?>
                         </td>
                         <td class="px-6 py-2">
-                            0123456789
+                            <?=$data['kategori']?>
                         </td>
                         <td class="px-6 py-2">
-                            November
+                            <?=$data['jumlah']?>
                         </td>
                         <td class="px-6 py-2">
-                            15/05/2024
+                            <?=$data['harga']?>
+                        </td>
+                        <td class="px-6 py-2">
+                            <?=$data['tanggal']?>
                         </td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            2
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            3
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            4
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            5
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

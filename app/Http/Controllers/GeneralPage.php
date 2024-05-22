@@ -17,6 +17,9 @@ class GeneralPage extends Controller {
     function PemasukanStatusSuperAdmin () {
         return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');
     }
+    function PemasukanLihatSuperAdmin () {
+        return view('Pages/SuperAdmin/Pemasukan-LihatSuperAdmin');
+    }
     function PengeluaranSuperAdmin () {
         return view('Pages/SuperAdmin/PengeluaranSuperAdmin');
     }

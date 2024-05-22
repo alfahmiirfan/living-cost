@@ -75,6 +75,7 @@ Route::controller(GeneralPage::class) -> group(function () {
     Route::get('/', 'dashboardSuperAdmin');
     Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
     Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
+    Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
     Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
     Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambahSuperAdmin');
     Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbahSuperAdmin');

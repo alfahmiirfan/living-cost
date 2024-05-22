@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="pr-8">
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">    
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                         <div class="pr-2">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10 2.5V7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -110,7 +110,6 @@
                         Status
                     </button>
                 </a>
-
             </div>
         </div>
         <!-- component -->
@@ -143,28 +142,41 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $dummyData = [ 
+                        [
+                            'no' => 1,
+                            'nama' => 'Alfahmi Irfan',
+                            'nisn' => '0123456789',
+                            'tahun' => '2023',
+                            'bulan' => 'Mei',
+                            'tanggalUpload' => '22/05/2024',
+                        ],
+                            ];
+                            ?>
+                    <?php foreach ($dummyData as $index => $data): ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            1
+                            <?= $data['no'] ?>
                         </th>
                         <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
+                            <?= $data['nama']?>
                         </td>
                         <td class="px-6 py-2">
-                            0123456789
+                            <?= $data['nisn']?>
                         </td>
                         <td class="px-6 py-2">
-                            2024
+                            <?= $data['tahun']?>
                         </td>
                         <td class="px-6 py-2">
-                            November
+                            <?= $data['bulan']?>
                         </td>
                         <td class="px-6 py-2">
-                            15/05/2024
+                            <?= $data['tanggalUpload']?>
                         </td>
                         <td class="px-6 py-2">
                             <div class="flex">
-                                <a href="#">
+                                <a href="/Pemasukan-LihatSuperAdmin">
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="30" height="30" rx="5" fill="#085288" fill-opacity="0.8" />
                                         <path d="M5 15C5 15 8 8 15 8C22 8 25 15 25 15C25 15 22 22 15 22C8 22 5 15 5 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -176,142 +188,10 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            2
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <div class="flex">
-                                <a href="#">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="30" height="30" rx="5" fill="#085288" fill-opacity="0.8" />
-                                        <path d="M5 15C5 15 8 8 15 8C22 8 25 15 25 15C25 15 22 22 15 22C8 22 5 15 5 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <x-pop-up-acc />
-                                <x-pop-up-delete />
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            3
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <div class="flex">
-                                <a href="#">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="30" height="30" rx="5" fill="#085288" fill-opacity="0.8" />
-                                        <path d="M5 15C5 15 8 8 15 8C22 8 25 15 25 15C25 15 22 22 15 22C8 22 5 15 5 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <x-pop-up-acc />
-                                <x-pop-up-delete />
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            4
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <div class="flex">
-                                <a href="#">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="30" height="30" rx="5" fill="#085288" fill-opacity="0.8" />
-                                        <path d="M5 15C5 15 8 8 15 8C22 8 25 15 25 15C25 15 22 22 15 22C8 22 5 15 5 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <x-pop-up-acc />
-                                <x-pop-up-delete />
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            5
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <div class="flex">
-                                <a href="#">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="30" height="30" rx="5" fill="#085288" fill-opacity="0.8" />
-                                        <path d="M5 15C5 15 8 8 15 8C22 8 25 15 25 15C25 15 22 22 15 22C8 22 5 15 5 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <x-pop-up-acc />
-                                <x-pop-up-delete />
-                            </div>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-
     </x-layout-super-admin>
     <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

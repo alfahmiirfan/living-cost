@@ -143,119 +143,41 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $dummyData = [ 
+                        [
+                            'no' => 1,
+                            'nama' => 'Alfahmi Irfan',
+                            'nisn' => '0123456789',
+                            'tahun' => '2023',
+                            'bulan' => 'Mei',
+                            'tanggalUpload' => '22/05/2024',
+                        ],
+                            ];
+                            ?>
+                    <?php foreach ($dummyData as $index => $data): ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            1
+                            <?=$data['no']?>
                         </th>
                         <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
+                            <?=$data['nama']?>
                         </td>
                         <td class="px-6 py-2">
-                            0123456789
+                            <?=$data['nisn']?>
                         </td>
                         <td class="px-6 py-2">
-                            2024
+                            <?=$data['tahun']?>
                         </td>
                         <td class="px-6 py-2">
-                            November
+                            <?=$data['bulan']?>
                         </td>
                         <td class="px-6 py-2">
-                            15/05/2024
+                            <?=$data['tanggalUpload']?>
                         </td>
+                        <?php endforeach; ?>
                         <td class="px-6 py-2">
                             <span class="inline-flex items-center rounded-md bg-[#32D62F] px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">Lunas</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            2
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <span class="inline-flex items-center rounded-md bg-[#32D62F] px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">Lunas</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            3
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <span class="inline-flex items-center rounded-md bg-[#FFF000] px-3.5 py-2 text-xs font-medium text-black ring-1 ring-inset ring-yellow-600/20">Belum Bayar</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            4
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <span class="inline-flex items-center rounded-md bg-[#FFF000] px-3.5 py-2 text-xs font-medium text-black ring-1 ring-inset ring-yellow-600/20">Belum Bayar</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            5
-                        </th>
-                        <td class="px-6 py-2">
-                            Muhammad Alfahmi Irfan
-                        </td>
-                        <td class="px-6 py-2">
-                            0123456789
-                        </td>
-                        <td class="px-6 py-2">
-                            2024
-                        </td>
-                        <td class="px-6 py-2">
-                            November
-                        </td>
-                        <td class="px-6 py-2">
-                            15/05/2024
-                        </td>
-                        <td class="px-6 py-2">
-                            <span class="inline-flex items-center rounded-md bg-[#F72323] px-[18px]   py-2 text-xs font-medium text-black ring-1 ring-inset ring-red-600/10">Telat Bayar</span>
                         </td>
                     </tr>
                 </tbody>
