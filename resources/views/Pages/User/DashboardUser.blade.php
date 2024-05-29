@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="/InformasiUser">
                     <div class="flex items-center justify-center h-36 w-full col-span-1 border-gray-300 rounded-md bg-yale-blue">
                         <div class="pt-2 justify-items-end flex-row items-center justify-center">
                             <div class=" flex justify-center">

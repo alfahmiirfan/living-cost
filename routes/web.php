@@ -101,6 +101,7 @@ Route::controller(GeneralPage::class) -> group(function () {
     Route::get('/DashboardUser', 'DashboardUser');
     Route::get('/ProfileUser', 'ProfileUser');
     Route::get('/UploadUser', 'UploadUser');
+    Route::get('/InformasiUser', 'InformasiUser');
     // Akhir user
 
 

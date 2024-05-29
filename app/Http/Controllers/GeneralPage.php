@@ -81,6 +81,9 @@ class GeneralPage extends Controller {
     function UploadUser () {
         return view('Pages/User/UploadUser');
     }
+    function InformasiUser () {
+        return view('Pages/User/InformasiUser');
+    }
     // Akhir user
 
 }
