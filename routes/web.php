@@ -98,7 +98,9 @@ Route::controller(GeneralPage::class) -> group(function () {
     // akhir admin
 
     // user
-
+    Route::get('/DashboardUser', 'DashboardUser');
+    Route::get('/ProfileUser', 'ProfileUser');
+    Route::get('/UploadUser', 'UploadUser');
     // Akhir user
 
 

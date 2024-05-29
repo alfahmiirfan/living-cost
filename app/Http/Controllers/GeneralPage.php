@@ -72,7 +72,15 @@ class GeneralPage extends Controller {
     // akhir admin
 
     // user
-
+    function DashboardUser () {
+        return view('Pages/User/DashboardUser');
+    }
+    function ProfileUser () {
+        return view('Pages/User/ProfileUser');
+    }
+    function UploadUser () {
+        return view('Pages/User/UploadUser');
+    }
     // Akhir user
 
 }
