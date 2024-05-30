@@ -68,7 +68,36 @@ class GeneralPage extends Controller {
     // akhir super admin
 
     // admin
-
+    function DashboardAdmin () {
+        return view('Pages/Admin/DashboardAdmin');
+    }
+    function PemasukanAdmin () {
+        return view('Pages/Admin/PemasukanAdmin');
+    }
+    function PemasukanStatusAdmin () {
+        return view('Pages/Admin/Pemasukan-StatusAdmin');
+    }
+    function PemasukanLihatAdmin () {
+        return view('Pages/Admin/Pemasukan-LihatAdmin');
+    }
+    function PengeluaranAdmin () {
+        return view('Pages/Admin/PengeluaranAdmin');
+    }
+    function PengeluaranTambahAdmin () {
+        return view('Pages/Admin/PengeluaranTambahAdmin');
+    }
+    function PengeluaranUbahAdmin () {
+        return view('Pages/Admin/PengeluaranUbahAdmin');
+    }
+    function PendataanAdmin () {
+        return view('Pages/Admin/PendataanAdmin');
+    }
+    function PendataanTambahAdmin () {
+        return view('Pages/Admin/PendataanTambahAdmin');
+    }
+    function PendataanUbahAdmin () {
+        return view('Pages/Admin/PendataanUbahAdmin');
+    }
     // akhir admin
 
     // user

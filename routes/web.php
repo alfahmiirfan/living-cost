@@ -94,7 +94,16 @@ Route::controller(GeneralPage::class) -> group(function () {
     // akhir super admin
 
     // admin
-
+    Route::get('/DashboardAdmin', 'DashboardAdmin');
+    Route::get('/PemasukanAdmin', 'PemasukanAdmin');
+    Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
+    Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
+    Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');
+    Route::get('/Pengeluaran-TambahAdmin', 'PengeluaranTambahAdmin');
+    Route::get('/Pengeluaran-UbahAdmin', 'PengeluaranUbahAdmin');
+    Route::get('/PendataanAdmin', 'PendataanAdmin');
+    Route::get('/Pendataan-TambahAdmin', 'PendataanTambahAdmin');
+    Route::get('/Pendataan-UbahAdmin', 'PendataanUbahAdmin');
     // akhir admin
 
     // user
