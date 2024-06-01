@@ -84,19 +84,19 @@ class GeneralPage extends Controller {
         return view('Pages/Admin/PengeluaranAdmin');
     }
     function PengeluaranTambahAdmin () {
-        return view('Pages/Admin/PengeluaranTambahAdmin');
+        return view('Pages/Admin/Pengeluaran-TambahAdmin');
     }
     function PengeluaranUbahAdmin () {
-        return view('Pages/Admin/PengeluaranUbahAdmin');
+        return view('Pages/Admin/Pengeluaran-UbahAdmin');
     }
-    function PendataanAdmin () {
-        return view('Pages/Admin/PendataanAdmin');
+    function PendataanSiswaAdmin () {
+        return view('Pages/Admin/PendataanSiswaAdmin');
     }
-    function PendataanTambahAdmin () {
-        return view('Pages/Admin/PendataanTambahAdmin');
+    function PendataanSiswaTambahAdmin () {
+        return view('Pages/Admin/PendataanSiswa-TambahAdmin');
     }
-    function PendataanUbahAdmin () {
-        return view('Pages/Admin/PendataanUbahAdmin');
+    function PendataanSiswaUbahAdmin () {
+        return view('Pages/Admin/PendataanSiswa-UbahAdmin');
     }
     // akhir admin
 

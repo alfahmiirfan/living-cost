@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/PendataanAdmin">
+                    <a href="/PendataanSiswaAdmin">
                         <div class="flex items-center justify-center h-56 w-72 col-span-1 border-gray-300 rounded-md bg-yale-blue">
                             <div class="pt-8 justify-items-end flex-row items-center justify-center">
                                 <div class=" flex justify-center">

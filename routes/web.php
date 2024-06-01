@@ -92,7 +92,7 @@ Route::controller(GeneralPage::class) -> group(function () {
     Route::get('/NewPasswordSuperAdmin', 'NewPasswordSuperAdmin');
     Route::get('/OtpSuperAdmin', 'OtpSuperAdmin');
     // akhir super admin
-
+    
     // admin
     Route::get('/DashboardAdmin', 'DashboardAdmin');
     Route::get('/PemasukanAdmin', 'PemasukanAdmin');
@@ -101,9 +101,9 @@ Route::controller(GeneralPage::class) -> group(function () {
     Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');
     Route::get('/Pengeluaran-TambahAdmin', 'PengeluaranTambahAdmin');
     Route::get('/Pengeluaran-UbahAdmin', 'PengeluaranUbahAdmin');
-    Route::get('/PendataanAdmin', 'PendataanAdmin');
-    Route::get('/Pendataan-TambahAdmin', 'PendataanTambahAdmin');
-    Route::get('/Pendataan-UbahAdmin', 'PendataanUbahAdmin');
+    Route::get('/PendataanSiswaAdmin', 'PendataanSiswaAdmin');
+    Route::get('/PendataanSiswa-TambahAdmin', 'PendataanSiswaTambahAdmin');
+    Route::get('/PendataanSiswa-UbahAdmin', 'PendataanSiswaUbahAdmin');
     // akhir admin
 
     // user

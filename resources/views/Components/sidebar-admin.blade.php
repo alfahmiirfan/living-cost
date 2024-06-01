@@ -79,12 +79,12 @@
                     <li>
                         @php
                         $path3 = [
-                        '/PendataanAdmin',
-                        '/Pendataan-TambahAdmin',
-                        '/Pendataan-UbahAdmin',
+                        '/PendataanSiswaAdmin',
+                        '/PendataanSiswa-TambahAdmin',
+                        '/PendataanSiswa-UbahAdmin',
                         ];
                         @endphp
-                        <a href="/PendataanAdmin" class="relative px-4 py-2 flex items-center space-x-4 rounded-md text-white @if (in_array(Request::path(), $path3)) bg-[#06416C] 
+                        <a href="/PendataanSiswaAdmin" class="relative px-4 py-2 flex items-center space-x-4 rounded-md text-white @if (in_array(Request::path(), $path3)) bg-[#06416C] 
         @else
             hover:bg-yale-blue @endif">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
