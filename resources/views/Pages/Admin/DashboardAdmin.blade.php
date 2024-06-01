@@ -12,7 +12,7 @@
         <div class="flex p-8  ">
             <div class="flex-grow overflow-auto w-full">
                 <div class="flex justify-center gap-12">
-                    <a href="#">
+                    <a href="/PemasukanAdmin">
                         <div class="flex items-center justify-center h-56 w-72 col-span-1 border-gray-300 rounded-md bg-yale-blue">
                             <div class="pt-8 justify-items-end flex-row items-center justify-center">
                                 <div class=" flex justify-center">
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="/PendataanAdmin">
                         <div class="flex items-center justify-center h-56 w-72 col-span-1 border-gray-300 rounded-md bg-yale-blue">
                             <div class="pt-8 justify-items-end flex-row items-center justify-center">
                                 <div class=" flex justify-center">
