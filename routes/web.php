@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OtentifikasiController;
+use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
 
@@ -70,29 +74,71 @@ use App\Http\Controllers\GeneralPage;
 //     return view('Pages/OtpSuperAdmin');
 // });
 
-Route::controller(GeneralPage::class) -> group(function () {
+Route::controller(SiswaController::class)->group(function () {
+    Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswaSuperAdmin');
+    Route::get('/PendataanSiswaSuperAdmin/hapus', 'hapus');
+    Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambahSuperAdmin');
+    Route::post('/Pendataan-TambahSuperAdmin', 'tambah');
+    Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbahSuperAdmin');
+    Route::post('/Pendataan-UbahSuperAdmin', 'edit');
+});
+
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/PengelolaanAdminSuperAdmin', 'PengelolaanAdminSuperAdmin');
+    Route::get('/PengelolaanAdmin-TambahSuperAdmin', 'PengelolaanAdminTambahSuperAdmin');
+    Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
+});
+
+Route::controller(PengeluaranController::class)->group(function () {
+    Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
+    Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambahSuperAdmin');
+    Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbahSuperAdmin');
+});
+
+Route::controller(OtentifikasiController::class)->group(function () {
+    Route::get('/LoginSuperAdmin', 'LoginSuperAdmin');
+    Route::get('/LupaPasswordSuperAdmin', 'LupaPasswordSuperAdmin');
+    Route::get('/NewPasswordSuperAdmin', 'NewPasswordSuperAdmin');
+    Route::get('/OtpSuperAdmin', 'OtpSuperAdmin');
+});
+
+Route::controller(GeneralPage::class)->group(function () {
     // super admin
     Route::get('/', 'dashboardSuperAdmin');
     Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
     Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
     Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
-    Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
-    Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambahSuperAdmin');
-    Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbahSuperAdmin');
-    Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswaSuperAdmin');
-    Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambahSuperAdmin');
-    Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbahSuperAdmin');
-    Route::get('/PengelolaanAdminSuperAdmin', 'PengelolaanAdminSuperAdmin');
-    Route::get('/PengelolaanAdmin-TambahSuperAdmin', 'PengelolaanAdminTambahSuperAdmin');
-    Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
+
+    // **
+    // Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
+    // Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambahSuperAdmin');
+    // Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbahSuperAdmin');
+    // **
+
+    // ***
+    // Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswaSuperAdmin');
+    // Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambahSuperAdmin');
+    // Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbahSuperAdmin');
+    // **
+
+    // **
+    // Route::get('/PengelolaanAdminSuperAdmin', 'PengelolaanAdminSuperAdmin');
+    // Route::get('/PengelolaanAdmin-TambahSuperAdmin', 'PengelolaanAdminTambahSuperAdmin');
+    // Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
+    // **
+
     Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
     Route::get('/Laporan-LihatSuperAdmin', 'LaporanLihatSuperAdmin');
-    Route::get('/LoginSuperAdmin', 'LoginSuperAdmin');
-    Route::get('/LupaPasswordSuperAdmin', 'LupaPasswordSuperAdmin');
-    Route::get('/NewPasswordSuperAdmin', 'NewPasswordSuperAdmin');
-    Route::get('/OtpSuperAdmin', 'OtpSuperAdmin');
+
+    // **
+    // Route::get('/LoginSuperAdmin', 'LoginSuperAdmin');
+    // Route::get('/LupaPasswordSuperAdmin', 'LupaPasswordSuperAdmin');
+    // Route::get('/NewPasswordSuperAdmin', 'NewPasswordSuperAdmin');
+    // Route::get('/OtpSuperAdmin', 'OtpSuperAdmin');
+    // **
+
     // akhir super admin
-    
+
     // admin
     Route::get('/DashboardAdmin', 'DashboardAdmin');
     Route::get('/PemasukanAdmin', 'PemasukanAdmin');

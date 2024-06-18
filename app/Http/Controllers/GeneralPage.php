@@ -6,111 +6,142 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
 
-class GeneralPage extends Controller {
+class GeneralPage extends Controller
+{
     // super admin
-    function dashboardSuperAdmin () {
+    function dashboardSuperAdmin()
+    {
         return view('Pages/SuperAdmin/DashboardSuperAdmin');
     }
-    function PemasukanSuperAdmin () {
+    function PemasukanSuperAdmin()
+    {
         return view('Pages/SuperAdmin/PemasukanSuperAdmin');
     }
-    function PemasukanStatusSuperAdmin () {
+    function PemasukanStatusSuperAdmin()
+    {
         return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');
     }
-    function PemasukanLihatSuperAdmin () {
+    function PemasukanLihatSuperAdmin()
+    {
         return view('Pages/SuperAdmin/Pemasukan-LihatSuperAdmin');
     }
-    function PengeluaranSuperAdmin () {
-        return view('Pages/SuperAdmin/PengeluaranSuperAdmin');
-    }
-    function PengeluaranTambahSuperAdmin () {
-        return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin');
-    }
-    function PengeluaranUbahSuperAdmin () {
-        return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin');
-    }
-    function PendataanSiswaSuperAdmin () {
-        return view('Pages/SuperAdmin/PendataanSuperAdmin');
-    }
-    function PendataanTambahSuperAdmin () {
-        return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin');
-    }
-    function PendataanUbahSuperAdmin () {
-        return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin');
-    }
-    function PengelolaanAdminSuperAdmin () {
-        return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin');
-    }
-    function PengelolaanAdminTambahSuperAdmin () {
-        return view('Pages/SuperAdmin/PengelolaanAdmin-TambahSuperAdmin');
-    }
-    function PengelolaanAdminUbahSuperAdmin () {
-        return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin');
-    }
-    function LaporanSuperAdmin () {
+    // function PengeluaranSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/PengeluaranSuperAdmin');
+    // }
+    // function PengeluaranTambahSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin');
+    // }
+    // function PengeluaranUbahSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin');
+    // }
+    // function PendataanSiswaSuperAdmin () {
+    //     return view('Pages/SuperAdmin/PendataanSuperAdmin');
+    // }
+    // function PendataanTambahSuperAdmin () {
+    //     return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin');
+    // }
+    // function PendataanUbahSuperAdmin () {
+    //     return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin');
+    // }
+    // function PengelolaanAdminSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin');
+    // }
+    // function PengelolaanAdminTambahSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/PengelolaanAdmin-TambahSuperAdmin');
+    // }
+    // function PengelolaanAdminUbahSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin');
+    // }
+    function LaporanSuperAdmin()
+    {
         return view('Pages/SuperAdmin/LaporanSuperAdmin');
     }
-    function LaporanLihatSuperAdmin () {
+    function LaporanLihatSuperAdmin()
+    {
         return view('Pages/SuperAdmin/Laporan-LihatSuperAdmin');
     }
-    function LoginSuperAdmin () {
-        return view('Pages/LoginSuperAdmin');
-    }
-    function LupaPasswordSuperAdmin () {
-        return view('Pages/LupaPasswordSuperAdmin');
-    }
-    function NewPasswordSuperAdmin () {
-        return view('Pages/NewPasswordSuperAdmin');
-    }
-    function OtpSuperAdmin () {
-        return view('Pages/OtpSuperAdmin');
-    }
+    // function LoginSuperAdmin()
+    // {
+    //     return view('Pages/LoginSuperAdmin');
+    // }
+    // function LupaPasswordSuperAdmin()
+    // {
+    //     return view('Pages/LupaPasswordSuperAdmin');
+    // }
+    // function NewPasswordSuperAdmin()
+    // {
+    //     return view('Pages/NewPasswordSuperAdmin');
+    // }
+    // function OtpSuperAdmin()
+    // {
+    //     return view('Pages/OtpSuperAdmin');
+    // }
     // akhir super admin
 
     // admin
-    function DashboardAdmin () {
+    function DashboardAdmin()
+    {
         return view('Pages/Admin/DashboardAdmin');
     }
-    function PemasukanAdmin () {
+    function PemasukanAdmin()
+    {
         return view('Pages/Admin/PemasukanAdmin');
     }
-    function PemasukanStatusAdmin () {
+    function PemasukanStatusAdmin()
+    {
         return view('Pages/Admin/Pemasukan-StatusAdmin');
     }
-    function PemasukanLihatAdmin () {
+    function PemasukanLihatAdmin()
+    {
         return view('Pages/Admin/Pemasukan-LihatAdmin');
     }
-    function PengeluaranAdmin () {
+    function PengeluaranAdmin()
+    {
         return view('Pages/Admin/PengeluaranAdmin');
     }
-    function PengeluaranTambahAdmin () {
+    function PengeluaranTambahAdmin()
+    {
         return view('Pages/Admin/Pengeluaran-TambahAdmin');
     }
-    function PengeluaranUbahAdmin () {
+    function PengeluaranUbahAdmin()
+    {
         return view('Pages/Admin/Pengeluaran-UbahAdmin');
     }
-    function PendataanSiswaAdmin () {
+    function PendataanSiswaAdmin()
+    {
         return view('Pages/Admin/PendataanSiswaAdmin');
     }
-    function PendataanSiswaTambahAdmin () {
+    function PendataanSiswaTambahAdmin()
+    {
         return view('Pages/Admin/PendataanSiswa-TambahAdmin');
     }
-    function PendataanSiswaUbahAdmin () {
+    function PendataanSiswaUbahAdmin()
+    {
         return view('Pages/Admin/PendataanSiswa-UbahAdmin');
     }
     // akhir admin
 
     // user
-    function DashboardUser () {
+    function DashboardUser()
+    {
         return view('Pages/User/DashboardUser');
     }
-    function ProfileUser () {
+    function ProfileUser()
+    {
         return view('Pages/User/ProfileUser');
     }
-    function UploadUser () {
+    function UploadUser()
+    {
         return view('Pages/User/UploadUser');
     }
-    function InformasiUser () {
+    function InformasiUser()
+    {
         return view('Pages/User/InformasiUser');
     }
     // Akhir user
