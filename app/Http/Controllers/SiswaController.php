@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Siswa;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,8 @@ class SiswaController extends Controller
 {
     function PendataanSiswaSuperAdmin(Request $request)
     {
-        $siswa = Siswa::where(function (Builder $query) use ($request) {
+        $siswa = User::where(function (Builder $query) use ($request) {
+            $query->whereNull(['email', 'id_admin']);
             if ($request->pencarian) {
                 $query->whereAny(['nama', 'nisn', 'angkatan'], 'LIKE', "%{$request->pencarian}%");
             }
@@ -24,7 +25,7 @@ class SiswaController extends Controller
     }
     function PendataanUbahSuperAdmin(Request $request)
     {
-        $siswa = Siswa::findOrFail($request->id);
+        $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
 
         return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin', compact('siswa'));
     }
@@ -32,14 +33,14 @@ class SiswaController extends Controller
     function tambah(Request $request)
     {
         $validasi = $request->validate([
-            'nisn' => 'required|string|max:255|unique:siswa,nisn',
+            'nisn' => 'required|string|max:255|unique:users,nisn',
             'tahun_masuk' => 'required|numeric|integer|digits:4',
             'angkatan' => 'required|numeric|integer|digits:4',
             'kata_sandi' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
         ]);
 
-        Siswa::create($validasi);
+        User::create($validasi);
 
         return redirect('/PendataanSiswaSuperAdmin');
     }
@@ -55,8 +56,8 @@ class SiswaController extends Controller
         ]);
 
         if ($request->id) {
-            $siswa = Siswa::findOrFail($request->id);
-            $cek = Siswa::whereKeyNot($request->id)->where('nisn', $validasi['nisn'])->exists();
+        $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
+        $cek = User::whereKeyNot($request->id)->whereNull(['email', 'id_admin'])->where('nisn', $validasi['nisn'])->exists();
 
             if (!$cek) {
                 $siswa->tahun_masuk = $validasi['tahun_masuk'];
@@ -83,7 +84,7 @@ class SiswaController extends Controller
     public function hapus(Request $request)
     {
         if ($request->id) {
-            $siswa = Siswa::findOrFail($request->id);
+        $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
 
             // amankan data yang bersangkutan
 

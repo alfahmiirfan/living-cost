@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
         $admin = User::where(function (Builder $query) use ($request) {
             // $query->whereKeyNot();
-            $query->whereNotNull('id_admin');
+            $query->whereNotNull('id_admin')->whereNull('nisn');
             if ($request->pencarian) {
                 $query->whereAny(['email', 'id_admin', 'nama'], 'LIKE', "%{$request->pencarian}%");
             }
@@ -27,7 +27,7 @@ class AdminController extends Controller
     function PengelolaanAdminUbahSuperAdmin(Request $request)
     {
     // $query->whereKeyNot();
-    $admin = User::whereKey($request->id)->whereNotNull('id_admin')->firstOrFail();
+    $admin = User::whereKey($request->id)->whereNotNull('id_admin')->whereNull('nisn')->firstOrFail();
 
         return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin', compact('admin'));
     }
@@ -57,7 +57,7 @@ class AdminController extends Controller
 
         if ($request->id) {
             // $query->whereKeyNot();
-            $admin = User::findOrFail($request->id);
+            $admin = User::whereKey($request->id)->whereNotNull('id_admin')->whereNull('nisn')->firstOrFail();
             $cek_id = User::whereKeyNot($request->id)->where('id_admin', $validasi['id_admin'])->exists();
             $cek_email = User::whereKeyNot($request->id)->where('email', $validasi['email'])->exists();
 
@@ -87,7 +87,7 @@ class AdminController extends Controller
     {
         if ($request->id) {
             // $query->whereKeyNot();
-            $admin = User::findOrFail($request->id);
+            $admin = User::whereKey($request->id)->whereNotNull('id_admin')->whereNull('nisn')->firstOrFail();
             $admin->delete();
 
             return back();

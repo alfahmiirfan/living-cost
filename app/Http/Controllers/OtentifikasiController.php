@@ -12,15 +12,15 @@ use Illuminate\Support\Str;
 
 class OtentifikasiController extends Controller
 {
-    function LoginSuperAdmin()
+    function LoginView()
     {
-        return view('Pages/LoginSuperAdmin');
+        return view('Pages/Login');
     }
-    function LupaPasswordSuperAdmin()
+    function LupaPasswordView()
     {
-        return view('Pages/LupaPasswordSuperAdmin');
+        return view('Pages/LupaPassword');
     }
-    function NewPasswordSuperAdmin(Request $request)
+    function NewPassword(Request $request)
     {
         $request->validate([
             'email' => 'required|string|max:255|email|exists:users,email',
@@ -29,15 +29,15 @@ class OtentifikasiController extends Controller
 
         $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
 
-        return view('Pages/NewPasswordSuperAdmin');
+        return view('Pages/NewPassword');
     }
-    function OtpSuperAdmin(Request $request)
+    function Otp(Request $request)
     {
         if ($request->email) {
             $user = User::where('email', $request->email)->firstOrFail();
         }
 
-        return view('Pages/OtpSuperAdmin');
+        return view('Pages/Otp');
     }
 
     public function login(Request $request)
@@ -55,10 +55,10 @@ class OtentifikasiController extends Controller
 
             if ($user->id_admin) {
                 // redirect to admin page
-                return true;
-            } else {
+                return redirect('/DashboardAdmin');
+            } else if ($user->nisn === null) {
                 // redirect to super admin page
-                return true;
+                return redirect('/');
             }
         }
 

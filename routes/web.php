@@ -102,10 +102,11 @@ Route::controller(PengeluaranController::class)->group(function () {
 });
 
 Route::controller(OtentifikasiController::class)->group(function () {
-    Route::get('/LoginSuperAdmin', 'LoginSuperAdmin');
-    Route::get('/LupaPasswordSuperAdmin', 'LupaPasswordSuperAdmin');
-    Route::get('/NewPasswordSuperAdmin', 'NewPasswordSuperAdmin');
-    Route::get('/OtpSuperAdmin', 'OtpSuperAdmin');
+    Route::get('/Login', 'LoginView');
+    Route::post('/Login', 'Login');
+    Route::get('/LupaPassword', 'LupaPasswordView');
+    Route::get('/NewPassword', 'NewPassword');
+    Route::get('/Otp', 'Otp');
 });
 
 Route::controller(GeneralPage::class)->group(function () {

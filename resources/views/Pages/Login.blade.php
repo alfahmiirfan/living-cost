@@ -22,13 +22,14 @@
         </div>
         <div class="flex w-full lg:w-1/2 justify-center items-center bg-yale-blue space-y-8">
             <div class="w-full px-12 md:px-32 lg:px-24">
-                <form class="bg-white rounded-md shadow-2xl p-10">
+                <form action="" method="POST" class="bg-white rounded-md shadow-2xl p-10">
+                    @csrf
                     <h1 class="text-gray-800 font-bold text-2xl mb-1 text-center pb-4">LOGIN </h1>
                     <div class="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl">
-                        <input id="email" class=" pl-2 w-full outline-none border-none" type="email" name="email" placeholder="Masukkan Email" />
+                        <input id="email" class=" pl-2 w-full outline-none border-none" type="email" name="email" placeholder="Masukkan Email" required />
                     </div>
                     <div class="flex items-center border-2 py-2 px-3 rounded-2xl ">
-                        <input class="pl-2  w-full outline-none border-none" type="password" name="password" id="password" placeholder="Masukkan Password" />
+                        <input class="pl-2  w-full outline-none border-none" type="password" name="kata_sandi" id="password" placeholder="Masukkan Password" required />
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye">
                             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                             <circle cx="12" cy="12" r="3" />
