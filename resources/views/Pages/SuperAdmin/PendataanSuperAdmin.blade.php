@@ -51,7 +51,7 @@
                     @foreach ( $siswa as $index => $data )
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $loop->iteration}}
+                            {{ ( is_numeric(request()->query('page')) && request()->query('page') !== null ? (request()->query('page') - 1) * 5 : 0 ) + $loop->iteration }}
                         </th>
                         <td class="px-6 py-2">
                             {{$data['nama']}}
@@ -79,6 +79,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $siswa->links() }}
         </div>
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

@@ -14,7 +14,7 @@ class SiswaController extends Controller
             if ($request->pencarian) {
                 $query->whereAny(['nama', 'nisn', 'angkatan'], 'LIKE', "%{$request->pencarian}%");
             }
-        })->latest()->get();
+        })->latest()->paginate(5);
 
         return view('Pages/SuperAdmin/PendataanSuperAdmin', compact('siswa'));
     }

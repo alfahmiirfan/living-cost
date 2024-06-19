@@ -16,7 +16,7 @@ class AdminController extends Controller
             if ($request->pencarian) {
                 $query->whereAny(['email', 'id_admin', 'nama'], 'LIKE', "%{$request->pencarian}%");
             }
-        })->latest()->get();
+        })->latest()->paginate(5);
 
         return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin', compact('admin'));
     }
