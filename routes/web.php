@@ -107,6 +107,7 @@ Route::controller(OtentifikasiController::class)->group(function () {
     Route::get('/LupaPassword', 'LupaPasswordView');
     Route::post('/LupaPassword', 'LupaPassword');
     Route::get('/NewPassword', 'NewPassword');
+    Route::post('/NewPassword', 'gantiPassword');
     Route::get('/Otp', 'Otp');
     Route::post('/Otp', 'otpVerifikasi');
 });

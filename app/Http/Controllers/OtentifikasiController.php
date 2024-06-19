@@ -28,7 +28,7 @@ class OtentifikasiController extends Controller
 
         $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
 
-        return view('Pages/NewPassword');
+        return view('Pages/NewPassword', compact('user'));
     }
     function Otp(Request $request)
     {
@@ -114,9 +114,9 @@ class OtentifikasiController extends Controller
 
         $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
 
-        $user->update(['kata_sandi' => $request->kata_sandi]);
+        $user->update(['kata_sandi' => $request->kata_sandi, 'otp' => null]);
 
         // redirect to login page
-        return true;
+        return redirect('/Login');
     }
 }
