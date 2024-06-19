@@ -36,7 +36,7 @@
                         </svg>
                     </div>
                     <div class="flex float-right pb-8">
-                        <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all font-light">Lupa Password ?</span>
+                        <a href="/LupaPassword" class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all font-light">Lupa Password ?</a>
                     </div>
                     <div class="pt-5 pb-5">
                         <button type="submit" class=" bg-[#F5E81D] w-full justify-center  pt-2 py-2 rounded-xl hover:bg-yellow-300 hover:-translate-y-1 transition-all duration-500 text-black font-semibold">Login</button>

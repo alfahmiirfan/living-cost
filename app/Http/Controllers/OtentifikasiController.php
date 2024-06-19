@@ -22,10 +22,9 @@ class OtentifikasiController extends Controller
     }
     function NewPassword(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,email',
-            'otp' => 'required|string|max:255|exists:users,otp',
-        ]);
+        if ($request->email === null || $request->otp === null) {
+            abort(404);
+        }
 
         $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
 
@@ -33,11 +32,13 @@ class OtentifikasiController extends Controller
     }
     function Otp(Request $request)
     {
-        if ($request->email) {
-            $user = User::where('email', $request->email)->firstOrFail();
+        if ($request->email === null) {
+            abort(404);
         }
 
-        return view('Pages/Otp');
+        $user = User::where('email', $request->email)->firstOrFail();
+
+        return view('Pages/Otp', compact('user'));
     }
 
     public function login(Request $request)
@@ -83,11 +84,11 @@ class OtentifikasiController extends Controller
         } catch (\Exception $e) {
             $user->update(['otp' => null]);
 
-            return false;
+            return back();
         }
 
         // redirect to otp verification page
-        return true;
+        return redirect('/Otp?email=' . $user->email);
     }
 
     public function otpVerifikasi(Request $request)
@@ -100,7 +101,7 @@ class OtentifikasiController extends Controller
         $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
 
         // redirect to change password page
-        return true;
+        return redirect('/NewPassword?email=' . $user->email . '&otp=' . $user->otp);
     }
 
     public function gantiPassword(Request $request)
