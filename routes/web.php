@@ -85,8 +85,11 @@ Route::controller(SiswaController::class)->group(function () {
 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/PengelolaanAdminSuperAdmin', 'PengelolaanAdminSuperAdmin');
+    Route::get('/PengelolaanAdminSuperAdmin/hapus', 'hapus');
     Route::get('/PengelolaanAdmin-TambahSuperAdmin', 'PengelolaanAdminTambahSuperAdmin');
+    Route::post('/PengelolaanAdmin-TambahSuperAdmin', 'tambah');
     Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
+    Route::post('/PengelolaanAdmin-UbahSuperAdmin', 'edit');
 });
 
 Route::controller(PengeluaranController::class)->group(function () {

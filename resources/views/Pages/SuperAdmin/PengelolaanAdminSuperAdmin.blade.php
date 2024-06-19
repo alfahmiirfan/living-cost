@@ -40,48 +40,37 @@
                             Nama
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Username
+                            Email
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        {{-- <th scope="col" class="px-6 py-3">
                             Password
-                        </th>
+                        </th> --}}
                         <th scope="col" class="px-6 py-3">
                             Aksi
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        $dummyData = [
-                            [
-                            'no' => 1,
-                            'id' => '001',
-                            'nama' => 'Alfahmi Irfan',
-                            'username' => 'alfahmiirfan',
-                            'password' => '123456',
-                            ],
-                            ];
-                                ?>
-                    <?php foreach ($dummyData as $index => $data): ?>
+                    @foreach ($admin as $index => $data )
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <?= $data['no'] ?>
+                            {{ $loop->iteration}}
                         </th>
                         <td class="px-6 py-2">
-                            <?= $data['id'] ?>
+                            {{$data['id_admin']}}
                         </td>
                         <td class="px-6 py-2">
-                            <?= $data['nama'] ?>
+                            {{$data['nama']}}
                         </td>
                         <td class="px-6 py-2">
-                            <?= $data['username'] ?>
+                            {{$data['email']}}
                         </td>
-                        <td class="px-6 py-2">
-                            <?= $data['password'] ?>
-                        </td>
+                        {{-- <td class="px-6 py-2">
+                            {{$data['kata_sandi']}}
+                        </td> --}}
                         <td class="px-6 py-2">
                             <div class="flex">
-                                <a href="/PengelolaanAdmin-UbahSuperAdmin">
+                                <a href="/PengelolaanAdmin-UbahSuperAdmin?id={{ $data['id'] }}">
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="30" height="30" rx="5" fill="#F5E81D" />
                                         <path d="M15 21.667H22.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -89,11 +78,11 @@
                                         <path d="M17.5 9.16699L20 11.667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <x-pop-up-delete />
+                                <x-pop-up-delete id="{{ $data['id'] }}" />
                             </div>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>

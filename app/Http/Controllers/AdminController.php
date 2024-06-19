@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     function PengelolaanAdminSuperAdmin(Request $request)
     {
-        $data = User::where(function (Builder $query) use ($request) {
+        $admin = User::where(function (Builder $query) use ($request) {
             // $query->whereKeyNot();
             $query->whereNotNull('id_admin');
             if ($request->pencarian) {
@@ -18,7 +18,7 @@ class AdminController extends Controller
             }
         })->latest()->get();
 
-        return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin');
+        return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin', compact('admin'));
     }
     function PengelolaanAdminTambahSuperAdmin()
     {
@@ -31,7 +31,7 @@ class AdminController extends Controller
             $admin = User::whereKey($request->id)->whereNotNull('id_admin')->firstOrFail();
         }
 
-        return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin');
+        return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin', compact('admin'));
     }
 
     function tambah(Request $request)
@@ -45,7 +45,7 @@ class AdminController extends Controller
 
         User::create($validasi);
 
-        return true;
+        return redirect('/PengelolaanAdminSuperAdmin');
     }
 
     public function edit(Request $request)
@@ -92,7 +92,7 @@ class AdminController extends Controller
             $admin = User::findOrFail($request->id);
             $admin->delete();
 
-            return true;
+            return back();
         }
 
         abort(404);
