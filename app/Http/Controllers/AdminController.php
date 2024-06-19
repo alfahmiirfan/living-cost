@@ -26,10 +26,8 @@ class AdminController extends Controller
     }
     function PengelolaanAdminUbahSuperAdmin(Request $request)
     {
-        if ($request->id) {
-            // $query->whereKeyNot();
-            $admin = User::whereKey($request->id)->whereNotNull('id_admin')->firstOrFail();
-        }
+    // $query->whereKeyNot();
+    $admin = User::whereKey($request->id)->whereNotNull('id_admin')->firstOrFail();
 
         return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin', compact('admin'));
     }

@@ -18,5 +18,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        foreach (['Pangan', 'Snack', 'Obat-obatan', 'Sarpras'] as $key => $value) {
+            \App\Models\Kategori::create(['nama' => $value]);
+        }
     }
 }

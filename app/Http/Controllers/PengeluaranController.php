@@ -11,27 +11,26 @@ class PengeluaranController extends Controller
 {
     function PengeluaranSuperAdmin(Request $request)
     {
-        $data = Pengeluaran::where(function (Builder $query) use ($request) {
+        $pengeluaran = Pengeluaran::where(function (Builder $query) use ($request) {
             if ($request->pencarian) {
                 $query->whereAny(['nama_item', 'kategori', 'tanggal'], 'LIKE', "%{$request->pencarian}%");
             }
-        })->latest()->get();
+        })->latest()->paginate(5);
 
-        return view('Pages/SuperAdmin/PengeluaranSuperAdmin');
+        return view('Pages/SuperAdmin/PengeluaranSuperAdmin', compact('pengeluaran'));
     }
     function PengeluaranTambahSuperAdmin()
     {
         $kategori = Kategori::get();
 
-        return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin');
+        return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin', compact('kategori'));
     }
     function PengeluaranUbahSuperAdmin(Request $request)
     {
-        if ($request->id) {
-            $pengeluaran = Pengeluaran::findOrFail($request->id);
-        }
+        $kategori = Kategori::get();
+        $pengeluaran = Pengeluaran::findOrFail($request->id);
 
-        return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin');
+        return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
     }
 
     function tambah(Request $request)
@@ -47,7 +46,7 @@ class PengeluaranController extends Controller
         $kategori = Kategori::findOrFail($validasi['kategori']);
         $pengeluaran = Pengeluaran::create(['kategori' => $kategori->nama, ...$request->only(['nama_item', 'tanggal', 'jumlah', 'harga'])]);
 
-        return true;
+        return redirect('/PengeluaranSuperAdmin');  
     }
 
     function edit(Request $request)
@@ -66,7 +65,7 @@ class PengeluaranController extends Controller
 
             $pengeluaran->update(['kategori' => $kategori->nama, ...$request->only(['nama_item', 'tanggal', 'jumlah', 'harga'])]);
 
-            return true;
+            return redirect('/PengeluaranSuperAdmin');
         }
 
         abort(404);
@@ -78,7 +77,7 @@ class PengeluaranController extends Controller
             $pengeluaran = Pengeluaran::findOrFail($request->id);
             $pengeluaran->delete();
 
-            return true;
+            return redirect('/PengeluaranSuperAdmin');
         }
 
         abort(404);

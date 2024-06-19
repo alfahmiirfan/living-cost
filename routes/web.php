@@ -94,8 +94,11 @@ Route::controller(AdminController::class)->group(function () {
 
 Route::controller(PengeluaranController::class)->group(function () {
     Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
+    Route::get('/PengeluaranSuperAdmin/hapus', 'hapus');
     Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambahSuperAdmin');
+    Route::post('/Pengeluaran-TambahSuperAdmin', 'tambah');
     Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbahSuperAdmin');
+    Route::post('/Pengeluaran-UbahSuperAdmin', 'edit');
 });
 
 Route::controller(OtentifikasiController::class)->group(function () {
