@@ -29,7 +29,7 @@ class SiswaController extends Controller
         }return view('Pages/Admin/PendataanSiswa-TambahAdmin');
         
     }
-    function PendataanUbah(Request $request)
+    function PendataanUbahSuperAdmin(Request $request)
     {
         $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
 
