@@ -17,17 +17,26 @@ class SiswaController extends Controller
             }
         })->latest()->paginate(5);
 
-        return view('Pages/SuperAdmin/PendataanSuperAdmin', compact('siswa'));
+        if(auth()->user()->id_admin === null) {
+            return view('Pages/SuperAdmin/PendataanSuperAdmin', compact('siswa'));
+        }return view('Pages/Admin/PendataanAdmin', compact('siswa'));
+
     }
     function PendataanTambahSuperAdmin()
     {
-        return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin');
+        if (auth()->user()->id_admin === null) {
+            return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin');
+        }return view('Pages/Admin/PendataanSiswa-TambahAdmin');
+        
     }
     function PendataanUbahSuperAdmin(Request $request)
     {
         $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
 
-        return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin', compact('siswa'));
+        if (auth()->user()->id_admin === null) {
+            return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin', compact('siswa'));
+        }return view('Pages/Admin/PendataanSiswa-UbahAdmin', compact('siswa'));
+
     }
 
     function tambah(Request $request)
@@ -42,7 +51,9 @@ class SiswaController extends Controller
 
         User::create($validasi);
 
-        return redirect('/PendataanSiswaSuperAdmin');
+        if (auth()->user()->id_admin === null) {
+            return redirect('/PendataanSiswaSuperAdmin');
+        }return redirect('/PendataanSiswaAdmin');
     }
 
     public function edit(Request $request)
@@ -72,7 +83,9 @@ class SiswaController extends Controller
 
                 // Ubah data yang bersangkutan
 
-                return redirect('/PendataanSiswaSuperAdmin');
+                if (auth()->user()->id_admin === null) {
+                    return redirect('/PendataanSiswaSuperAdmin');
+                }return redirect('/PendataanSiswaAdmin');
             }
 
             return back()->withInput()->withErrors(['nisn' => 'nisn already used']);
@@ -89,10 +102,10 @@ class SiswaController extends Controller
             // amankan data yang bersangkutan
 
             $siswa->delete();
-
-            return back();
+            if (auth()->user()->id_admin === null) {
+                return redirect('/PendataanSuperAdmin');
+            }return redirect('/PendataanSiswaAdmin');   
         }
-
         abort(404);
     }
 }

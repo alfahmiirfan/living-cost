@@ -75,11 +75,11 @@ use App\Http\Controllers\GeneralPage;
 // });
 
 Route::controller(SiswaController::class)->group(function () {
-    Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswaSuperAdmin');
+    Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswa');
     Route::get('/PendataanSiswaSuperAdmin/hapus', 'hapus');
-    Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambahSuperAdmin');
+    Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambah');
     Route::post('/Pendataan-TambahSuperAdmin', 'tambah');
-    Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbahSuperAdmin');
+    Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbah');
     Route::post('/Pendataan-UbahSuperAdmin', 'edit');
 });
 
