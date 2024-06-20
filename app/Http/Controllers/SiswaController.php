@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
-    function PendataanSiswaSuperAdmin(Request $request)
+    function PendataanSiswa(Request $request)
     {
         $siswa = User::where(function (Builder $query) use ($request) {
             $query->whereNull(['email', 'id_admin']);
@@ -22,14 +22,14 @@ class SiswaController extends Controller
         }return view('Pages/Admin/PendataanAdmin', compact('siswa'));
 
     }
-    function PendataanTambahSuperAdmin()
+    function PendataanTambah()
     {
         if (auth()->user()->id_admin === null) {
             return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin');
         }return view('Pages/Admin/PendataanSiswa-TambahAdmin');
         
     }
-    function PendataanUbahSuperAdmin(Request $request)
+    function PendataanUbah(Request $request)
     {
         $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
 
