@@ -93,11 +93,11 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 Route::controller(PengeluaranController::class)->group(function () {
-    Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
+    Route::get('/PengeluaranSuperAdmin', 'Pengeluaran');
     Route::get('/PengeluaranSuperAdmin/hapus', 'hapus');
-    Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambahSuperAdmin');
+    Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambah');
     Route::post('/Pengeluaran-TambahSuperAdmin', 'tambah');
-    Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbahSuperAdmin');
+    Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbah');
     Route::post('/Pengeluaran-UbahSuperAdmin', 'edit');
 });
 

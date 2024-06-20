@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class PengeluaranController extends Controller
 {
-    function PengeluaranSuperAdmin(Request $request)
+    function Pengeluaran(Request $request)
     {
         $pengeluaran = Pengeluaran::where(function (Builder $query) use ($request) {
             if ($request->pencarian) {
@@ -17,20 +17,26 @@ class PengeluaranController extends Controller
             }
         })->latest()->paginate(5);
 
-        return view('Pages/SuperAdmin/PengeluaranSuperAdmin', compact('pengeluaran'));
+        if (auth()->user()->id_admin === null) {
+            return view('Pages/SuperAdmin/PengeluaranSuperAdmin', compact('pengeluaran'));
+        } return view('Pages/Admin/PengeluaranAdmin', compact('pengeluaran'));
     }
-    function PengeluaranTambahSuperAdmin()
+    function PengeluaranTambah()
     {
         $kategori = Kategori::get();
 
-        return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin', compact('kategori'));
+        if (auth()->user()->id_admin === null) {
+            return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin', compact('kategori'));
+        } return view('Pages/Admin/Pengeluaran-TambahAdmin', compact('kategori'));
     }
-    function PengeluaranUbahSuperAdmin(Request $request)
+    function PengeluaranUbah(Request $request)
     {
         $kategori = Kategori::get();
         $pengeluaran = Pengeluaran::findOrFail($request->id);
 
-        return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
+        if (auth()->user()->id_admin === null) {
+            return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
+        }return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
     }
 
     function tambah(Request $request)
@@ -46,7 +52,10 @@ class PengeluaranController extends Controller
         $kategori = Kategori::findOrFail($validasi['kategori']);
         $pengeluaran = Pengeluaran::create(['kategori' => $kategori->nama, ...$request->only(['nama_item', 'tanggal', 'jumlah', 'harga'])]);
 
-        return redirect('/PengeluaranSuperAdmin');  
+        if (auth()->user()->id_admin === null) {
+            return redirect('/PengeluaranSuperAdmin');
+        }
+        return redirect('/PengeluaranAdmin');
     }
 
     function edit(Request $request)
@@ -65,7 +74,10 @@ class PengeluaranController extends Controller
 
             $pengeluaran->update(['kategori' => $kategori->nama, ...$request->only(['nama_item', 'tanggal', 'jumlah', 'harga'])]);
 
-            return redirect('/PengeluaranSuperAdmin');
+            if (auth()->user()->id_admin === null) {
+                return redirect('/PengeluaranSuperAdmin');
+            }
+            return redirect('/PengeluaranAdmin');
         }
 
         abort(404);
@@ -77,7 +89,10 @@ class PengeluaranController extends Controller
             $pengeluaran = Pengeluaran::findOrFail($request->id);
             $pengeluaran->delete();
 
-            return redirect('/PengeluaranSuperAdmin');
+            if (auth()->user()->id_admin === null) {
+                return redirect('/PengeluaranSuperAdmin');
+            }
+            return redirect('/PengeluaranAdmin');
         }
 
         abort(404);

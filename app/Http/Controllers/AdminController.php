@@ -71,7 +71,7 @@ class AdminController extends Controller
                     $admin->update(['kata_sandi' => $validasi['kata_sandi']]);
                 }
 
-                return true;
+                return redirect('/PengelolaanAdminSuperAdmin');
             }
 
             if ($cek_id) {
