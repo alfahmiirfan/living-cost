@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pr-8">
+                <div class="">
                     <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                         <div class="pr-2">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,15 +139,6 @@
                         </ul>
                     </div>
                 </div>
-                <a href="Pemasukan-StatusSuperAdmin">
-                    <button type="button" class="px-5 py-2 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-check">
-                            <rect width="18" height="18" x="3" y="3" rx="2" />
-                            <path d="m9 12 2 2 4-4" />
-                        </svg>
-                        Status
-                    </button>
-                </a>
             </div>
         </div>
         <!-- component -->
@@ -195,38 +186,28 @@
                     <?php foreach ($dummyData as $index => $data): ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <?= $data['no'] ?>
+                            <?=$data['no']?>
                         </th>
                         <td class="px-6 py-2">
-                            <?= $data['nama']?>
+                            <?=$data['nama']?>
                         </td>
                         <td class="px-6 py-2">
-                            <?= $data['nisn']?>
+                            <?=$data['nisn']?>
                         </td>
                         <td class="px-6 py-2">
-                            <?= $data['tahun']?>
+                            <?=$data['tahun']?>
                         </td>
                         <td class="px-6 py-2">
-                            <?= $data['bulan']?>
+                            <?=$data['bulan']?>
                         </td>
                         <td class="px-6 py-2">
-                            <?= $data['tanggalUpload']?>
+                            <?=$data['tanggalUpload']?>
                         </td>
+                        <?php endforeach; ?>
                         <td class="px-6 py-2">
-                            <div class="flex">
-                                <a href="/Pemasukan-LihatSuperAdmin">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="30" height="30" rx="5" fill="#085288" fill-opacity="0.8" />
-                                        <path d="M5 15C5 15 8 8 15 8C22 8 25 15 25 15C25 15 22 22 15 22C8 22 5 15 5 15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15 18C16.6569 18 18 16.6569 18 15C18 13.3431 16.6569 12 15 12C13.3431 12 12 13.3431 12 15C12 16.6569 13.3431 18 15 18Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <x-pop-up-acc />
-                                <x-pop-up-delete />
-                            </div>
+                            <span class="inline-flex items-center rounded-md bg-[#32D62F] px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">Lunas</span>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
