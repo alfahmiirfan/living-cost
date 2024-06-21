@@ -18,8 +18,10 @@ class SiswaController extends Controller
         })->latest()->paginate(5);
 
         if(auth()->user()->id_admin === null) {
+            // return auth()->user();
             return view('Pages/SuperAdmin/PendataanSuperAdmin', compact('siswa'));
-        }return view('Pages/Admin/PendataanAdmin', compact('siswa'));
+        }
+        return view('Pages/Admin/PendataanSiswaAdmin', compact('siswa'));
 
     }
     function PendataanTambah()
@@ -29,7 +31,7 @@ class SiswaController extends Controller
         }return view('Pages/Admin/PendataanSiswa-TambahAdmin');
         
     }
-    function PendataanUbahSuperAdmin(Request $request)
+    function PendataanUbah(Request $request)
     {
         $siswa = User::whereKey($request->id)->whereNull(['email', 'id_admin'])->firstOrFail();
 

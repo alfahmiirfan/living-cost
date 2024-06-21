@@ -74,6 +74,7 @@ use App\Http\Controllers\GeneralPage;
 //     return view('Pages/OtpSuperAdmin');
 // });
 
+//pendataan siswa super admin
 Route::controller(SiswaController::class)->group(function () {
     Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswa');
     Route::get('/PendataanSiswaSuperAdmin/hapus', 'hapus');
@@ -81,6 +82,15 @@ Route::controller(SiswaController::class)->group(function () {
     Route::post('/Pendataan-TambahSuperAdmin', 'tambah');
     Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbah');
     Route::post('/Pendataan-UbahSuperAdmin', 'edit');
+});
+//pendataan siswa admin
+Route::controller(SiswaController::class)->group(function () {
+    Route::get('/PendataanSiswaAdmin', 'PendataanSiswa');
+    Route::get('/PendataanSiswaAdmin/hapus', 'hapus');
+    Route::get('/PendataanSiswa-TambahAdmin', 'PendataanTambah');
+    Route::post('/PendataanSiswa-TambahAdmin', 'tambah');
+    Route::get('/PendataanSiswa-UbahAdmin', 'PendataanUbah');
+    Route::post('/PendataanSiswa-UbahAdmin', 'edit');
 });
 
 Route::controller(AdminController::class)->group(function () {
@@ -91,7 +101,7 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
     Route::post('/PengelolaanAdmin-UbahSuperAdmin', 'edit');
 });
-
+//pengeluaran super admin
 Route::controller(PengeluaranController::class)->group(function () {
     Route::get('/PengeluaranSuperAdmin', 'Pengeluaran');
     Route::get('/PengeluaranSuperAdmin/hapus', 'hapus');
@@ -100,6 +110,16 @@ Route::controller(PengeluaranController::class)->group(function () {
     Route::get('/Pengeluaran-UbahSuperAdmin', 'PengeluaranUbah');
     Route::post('/Pengeluaran-UbahSuperAdmin', 'edit');
 });
+// pengeluaran admin
+Route::controller(PengeluaranController::class)->group(function () {
+    Route::get('/PengeluaranAdmin', 'Pengeluaran');
+    Route::get('/PengeluaranAdmin/hapus', 'hapus');
+    Route::get('/Pengeluaran-TambahAdmin', 'PengeluaranTambah');
+    Route::post('/Pengeluaran-TambahAdmin', 'tambah');
+    Route::get('/Pengeluaran-UbahAdmin', 'PengeluaranUbah');
+    Route::post('/Pengeluaran-UbahAdmin', 'edit');
+});
+
 
 Route::controller(OtentifikasiController::class)->group(function () {
     Route::get('/Login', 'LoginView')->name('login');
@@ -152,14 +172,14 @@ Route::controller(GeneralPage::class)->group(function () {
     // admin
     Route::get('/DashboardAdmin', 'DashboardAdmin');
     Route::get('/PemasukanAdmin', 'PemasukanAdmin');
-    Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
-    Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
-    Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');
-    Route::get('/Pengeluaran-TambahAdmin', 'PengeluaranTambahAdmin');
-    Route::get('/Pengeluaran-UbahAdmin', 'PengeluaranUbahAdmin');
-    Route::get('/PendataanSiswaAdmin', 'PendataanSiswaAdmin');
-    Route::get('/PendataanSiswa-TambahAdmin', 'PendataanSiswaTambahAdmin');
-    Route::get('/PendataanSiswa-UbahAdmin', 'PendataanSiswaUbahAdmin');
+    // Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
+    // Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
+    // Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');
+    // Route::get('/Pengeluaran-TambahAdmin', 'PengeluaranTambahAdmin');
+    // Route::get('/Pengeluaran-UbahAdmin', 'PengeluaranUbahAdmin');
+    // Route::get('/PendataanSiswaAdmin', 'PendataanSiswaAdmin');
+    // Route::get('/PendataanSiswa-TambahAdmin', 'PendataanSiswaTambahAdmin');
+    // Route::get('/PendataanSiswa-UbahAdmin', 'PendataanSiswaUbahAdmin');
     // akhir admin
 
     // user

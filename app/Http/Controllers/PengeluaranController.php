@@ -36,7 +36,7 @@ class PengeluaranController extends Controller
 
         if (auth()->user()->id_admin === null) {
             return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
-        }return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
+        }return view('Pages/Admin/Pengeluaran-UbahAdmin', compact('pengeluaran', 'kategori'));
     }
 
     function tambah(Request $request)
