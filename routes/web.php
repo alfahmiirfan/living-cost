@@ -158,8 +158,8 @@ Route::controller(GeneralPage::class)->group(function () {
     // **
 
     Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
-    Route::get('/Laporan-LihatSuperAdmin', 'LaporanLihatSuperAdmin');
-
+    Route::get('/CetakLaporan', 'CetakLaporan');
+    Route::get('/CetakLaporanKategori', 'CetakLaporanKategori');
     // **
     // Route::get('/LoginSuperAdmin', 'LoginSuperAdmin');
     // Route::get('/LupaPasswordSuperAdmin', 'LupaPasswordSuperAdmin');
@@ -171,7 +171,7 @@ Route::controller(GeneralPage::class)->group(function () {
 
     // admin
     Route::get('/DashboardAdmin', 'DashboardAdmin');
-    Route::get('/PemasukanAdmin', 'PemasukanAdmin');
+    // Route::get('/PemasukanAdmin', 'PemasukanAdmin');
     // Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
     // Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
     // Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');

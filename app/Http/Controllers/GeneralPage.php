@@ -62,9 +62,13 @@ class GeneralPage extends Controller
     {
         return view('Pages/SuperAdmin/LaporanSuperAdmin');
     }
-    function LaporanLihatSuperAdmin()
+    function CetakLaporan()
     {
-        return view('Pages/SuperAdmin/Laporan-LihatSuperAdmin');
+        return view('Pages/SuperAdmin/CetakLaporan');
+    }
+    function CetakLaporanKategori()
+    {
+        return view('Pages/SuperAdmin/CetakLaporanKategori');
     }
     // function LoginSuperAdmin()
     // {
