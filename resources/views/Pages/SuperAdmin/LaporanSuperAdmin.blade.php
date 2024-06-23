@@ -6,6 +6,22 @@
     <title>Laporan Keuangan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <style>
+        @media print {
+            body {
+                visibility: hidden;
+            }
+
+            #laporan {
+                display: block;
+                visibility: visible;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <x-layout-super-admin>
@@ -83,8 +99,8 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="/CetakLaporan" class="pl-8">
-                        <button type="button" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
+                    <div class="pl-8">
+                        <button onclick="LaporanPrint()" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                             <div class="pr-2">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.42554 9.75V1H22.7021V9.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -94,7 +110,7 @@
                             </div>
                             Cetak PDF
                         </button>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,8 +177,110 @@
                 </tbody>
             </table>
         </div>
+        <div class="p-16 hidden" id="laporan">
+            <div class="">
+                <h1 class="font-bold text-xl pb-4">Laporan Keuangan SMAN 10 Kaur (Pentagon) </h1>
+                <h1 class="">Bulan : </h1>
+                <h1 class="pb-4">Jenis : Semua Laporan</h1>
+                <h1 class="pb-4 font-bold">Total Pengeluaran : </h1>
+                <div class="relative overflow-x-auto">
+                    <table class="border-2 w-full text-sm text-left rtl:text-right">
+                        <thead class="border-2 text-xs  uppercase ">
+                            <tr>
+                                <th scope="col" class="px-3 py-1">
+                                    No
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Nama Item
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Kategori
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Jumlah
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Harga
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Tanggal
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-2">
+                                <td class="px-3 py-1">
+                                    1
+                                </td>
+                                <td class="px-3 py-1">
+                                    Ayam Kampung
+                                </td>
+                                <td class="px-3 py-1">
+                                    Pangan
+                                </td>
+                                <td class="px-3 py-1">
+                                    12
+                                </td>
+                                <td class="px-3 py-1">
+                                    350000
+                                </td>
+                                <td class="px-3 py-1">
+                                    23/06/2024
+                                </td>
+                            </tr>
+                            <tr class="border-2">
+                                <td class="px-3 py-1">
+                                    2
+                                </td>
+                                <td class="px-3 py-1">
+                                    Bantal
+                                </td>
+                                <td class="px-3 py-1">
+                                    Sarpras
+                                </td>
+                                <td class="px-3 py-1">
+                                    8
+                                </td>
+                                <td class="px-3 py-1">
+                                    400000
+                                </td>
+                                <td class="px-3 py-1">
+                                    24/06/2024
+                                </td>
+                            </tr>
+                            <tr class="border-2">
+                                <td class="px-3 py-1">
+                                    3
+                                </td>
+                                <td class="px-3 py-1">
+                                    Gorengan
+                                </td>
+                                <td class="px-3 py-1">
+                                    Snack
+                                </td>
+                                <td class="px-3 py-1">
+                                    20
+                                </td>
+                                <td class="px-3 py-1">
+                                    200000
+                                </td>
+                                <td class="px-3 py-1">
+                                    25/06/2024
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        function LaporanPrint() {
+            window.print()
+        }
+
+    </script>
 </body>
 </html>

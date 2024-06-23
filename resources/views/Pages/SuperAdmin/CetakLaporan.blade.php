@@ -7,7 +7,10 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="p-16">
+    <button type="button" onclick="LaporanPrint()">
+        Print
+    </button>
+    <div id="Laporan" class="p-16">
         <div class="">
             <h1 class="font-bold text-xl pb-4">Laporan Keuangan SMAN 10 Kaur (Pentagon) </h1>
             <h1 class="">Bulan : </h1>
@@ -104,6 +107,21 @@
 
         </div>
     </div>
+
+    <script>
+        function LaporanPrint() {
+            let doc = document.getElementById('laporan')
+
+            if (typeof doc.print === 'undefined') {
+                setTimeout(function() {
+                    LaporanPrint();
+                }, 1000);
+            } else {
+                doc.print();
+            }
+        }
+
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
