@@ -9,12 +9,12 @@
 </head>
 <body>
     <x-layout-super-admin>
-        <x-navbar-super-admin title="Laporan Keuangan" />
+        <x-navbar-super-admin title="Laporan Keuangan - Per Kategori" />
         <div class="flex">
             <x-search-super-admin />
             <div class="flex">
                 <div class="absolute top-30 right-10 flex justify-between items-center rounded-md ">
-                    <a href="/LaporanKategoriSuperAdmin">
+                    <a href="/LaporanSuperAdmin">
                         <button id="dropdownReport" data-dropdown-toggle="dropdown-report" class="px-5 py-2.5 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                             {{-- <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-text">
@@ -22,7 +22,7 @@
                                     <path d="M8 7h6" />
                                     <path d="M8 11h8" /></svg>
                             </div> --}}
-                            Laporan Per Kategori
+                            Semua Laporan
                         </button>
                     </a>
                     <div class="pl-8">
@@ -83,7 +83,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="/CetakLaporan" class="pl-8">
+                    <a href="/CetakLaporanKategori" class="pl-8">
                         <button type="button" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                             <div class="pr-2">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,9 +107,6 @@
                             No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Nama Item
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Kategori
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -128,9 +125,8 @@
                         $dummyData = [
                             [
                             'no' => 1,
-                            'namaItem' => 'Ayam Kampung',
                             'kategori' => 'Pangan',
-                            'jumlah' => 'alfahmiirfan',
+                            'jumlah' => '300',
                             'harga' => '123456',
                             'tanggal' => '22/05/2024',
                             ],
@@ -141,9 +137,6 @@
                         <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <?=$data['no']?>
                         </th>
-                        <td class="px-6 py-2">
-                            <?=$data['namaItem']?>
-                        </td>
                         <td class="px-6 py-2">
                             <?=$data['kategori']?>
                         </td>

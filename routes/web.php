@@ -158,6 +158,7 @@ Route::controller(GeneralPage::class)->group(function () {
     // **
 
     Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
+    Route::get('/LaporanKategoriSuperAdmin', 'LaporanKategoriSuperAdmin');
     Route::get('/CetakLaporan', 'CetakLaporan');
     Route::get('/CetakLaporanKategori', 'CetakLaporanKategori');
     // **

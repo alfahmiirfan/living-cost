@@ -11,7 +11,8 @@
         <div class="">
             <h1 class="font-bold text-xl pb-4">Laporan Keuangan SMAN 10 Kaur (Pentagon) </h1>
             <h1 class="">Bulan : </h1>
-            <h1 class="pb-4">Laporan Per : Item</h1>
+            <h1 class="pb-4">Jenis : Semua Laporan</h1>
+            <h1 class="pb-4 font-bold">Total Pengeluaran : </h1>
             <div class="relative overflow-x-auto">
                 <table class="border-2 w-full text-sm text-left rtl:text-right">
                     <thead class="border-2 text-xs  uppercase ">
