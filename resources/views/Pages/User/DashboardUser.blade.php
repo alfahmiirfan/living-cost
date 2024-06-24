@@ -9,29 +9,30 @@
 <body>
     <x-layout-user>
         <x-navbar-user title="Muhammad Alfahmi Irfan" />
-        <div class="pb-8">
-            <a href="/ProfileUser">
-                <button type="button" class="pl-5 px-6 py-2 text-md font-medium text-black in    items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
-                    Profile
-                </button>
-            </a>
-        </div>
-        <div class="pt-4 pb-4">
-            <h1 class="text-base font-semibold ">Dashboard </h1>
+        <div class="pt-4 pb-4 flex justify-between items-center">
+            <h1 class="text-base font-bold ">Dashboard </h1>
+            <div class=" rounded-md">
+                <a href="#">
+                    <button type="button" class="m-auto px-3 py-2 text-sm font-medium text-black  bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                    </button>
+                </a>
+            </div>
         </div>
         <div class="w-full">
             <div class="grid gap-6">
-                <a href="/UploadUser">
+                <a href="/PembayaranUser">
                     <div class="flex items-center justify-center h-36 w-full col-span-1 border-gray-300 rounded-md bg-yale-blue">
                         <div class="pt-2 justify-items-end flex-row items-center justify-center">
                             <div class=" flex justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-white lucide lucide-user-round">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                    <polyline points="17 8 12 3 7 8" />
-                                    <line x1="12" x2="12" y1="3" y2="15" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-white lucide lucide-wallet">
+                                    <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+                                    <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></svg>
                             </div>
                             <div class="pt-4">
-                                <p class="text-white text-base tracking-wide">Upload Bukti Pembayaran</p>
+                                <p class="text-white text-base tracking-wide">Pembayaran Living Cost</p>
                             </div>
                         </div>
                     </div>

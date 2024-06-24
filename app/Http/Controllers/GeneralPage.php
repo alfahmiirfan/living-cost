@@ -140,6 +140,23 @@ class GeneralPage extends Controller
     {
         return view('Pages/User/DashboardUser');
     }
+    function InformasiUser()
+    {
+        return view('Pages/User/InformasiUser');
+    }
+    function PembayaranUser()
+    {
+        return view('Pages/User/PembayaranUser');
+    }
+    function MetodePembayaranUser()
+    {
+        return view('Pages/User/MetodePembayaranUser');
+    }
+    function VirtualAccountUser()
+    {
+        return view('Pages/User/VirtualAccountUser');
+    }
+
     function ProfileUser()
     {
         return view('Pages/User/ProfileUser');
@@ -148,10 +165,8 @@ class GeneralPage extends Controller
     {
         return view('Pages/User/UploadUser');
     }
-    function InformasiUser()
-    {
-        return view('Pages/User/InformasiUser');
-    }
+
+
     // Akhir user
 
 }

@@ -172,7 +172,7 @@ Route::controller(GeneralPage::class)->group(function () {
 
     // admin
     Route::get('/DashboardAdmin', 'DashboardAdmin');
-    // Route::get('/PemasukanAdmin', 'PemasukanAdmin');
+    Route::get('/PemasukanAdmin', 'PemasukanAdmin');
     // Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
     // Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
     // Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');
@@ -185,9 +185,13 @@ Route::controller(GeneralPage::class)->group(function () {
 
     // user
     Route::get('/DashboardUser', 'DashboardUser');
+    Route::get('/InformasiUser', 'InformasiUser');
+    Route::get('/PembayaranUser', 'PembayaranUser');
+    Route::get('/MetodePembayaranUser', 'MetodePembayaranUser');
+    Route::get('/VirtualAccountUser', 'VirtualAccountUser');
     Route::get('/ProfileUser', 'ProfileUser');
     Route::get('/UploadUser', 'UploadUser');
-    Route::get('/InformasiUser', 'InformasiUser');
+
     // Akhir user
 
 

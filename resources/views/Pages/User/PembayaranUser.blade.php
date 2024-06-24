@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dashboard Super Admin</title>
+    <title>Pembayaran Living Cost</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 </head>
@@ -10,7 +10,7 @@
     <x-layout-user>
         <x-navbar-user title="Muhammad Alfahmi Irfan" />
         <div class="pt-4 pb-4">
-            <h1 class="text-base font-bold ">Informasi Pembayaran Living Cost</h1>
+            <h1 class="text-base font-bold ">Pembayaran Living Cost</h1>
         </div>
         <div class="pr-8 pb-4">
             <button id="dropdownYears" data-dropdown-toggle="dropdown-years" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
@@ -116,7 +116,7 @@
                             Bulan
                         </th>
                         <th scope="col" class="px-2 py-2">
-                            Status
+                            Aksi
                         </th>
                     </tr>
                 </thead>
@@ -128,6 +128,7 @@
                             'tahun' => '2023',
                             'bulan' => 'November',
                         ],
+                        
                         ];
                         ?>
                     <?php foreach ($dummyData as $index => $data): ?>
@@ -143,7 +144,13 @@
                         </td>
                         <?php endforeach; ?>
                         <td class="px-2 py-2">
-                            <span class="inline-flex items-center rounded-md bg-[#32D62F] px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">Lunas</span>
+                            <div class="flex">
+                                <a href="/MetodePembayaranUser">
+                                    <button type="submit" class="px-5 py-2 text-sm font-medium text-white inline-flex items-center bg-[#085288] hover:bg-yale-blue-300 focus:ring-4 focus:outline-none focus:ring-yale-blue-400 rounded-lg text-center dark:bg-yale-blue-600 dark:hover:bg-yale-blue-700 dark:focus:ring-yale-blue-800">
+                                        <span class="">Bayar</span>
+                                    </button>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
