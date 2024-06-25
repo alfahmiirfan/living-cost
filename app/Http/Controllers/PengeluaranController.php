@@ -15,11 +15,12 @@ class PengeluaranController extends Controller
             if ($request->pencarian) {
                 $query->whereAny(['nama_item', 'kategori', 'tanggal'], 'LIKE', "%{$request->pencarian}%");
             }
-        })->latest()->paginate(5);
+        })->orderBy('tanggal', 'desc')->paginate(5);
 
         if (auth()->user()->id_admin === null) {
             return view('Pages/SuperAdmin/PengeluaranSuperAdmin', compact('pengeluaran'));
-        } return view('Pages/Admin/PengeluaranAdmin', compact('pengeluaran'));
+        }
+        return view('Pages/Admin/PengeluaranAdmin', compact('pengeluaran'));
     }
     function PengeluaranTambah()
     {
@@ -27,7 +28,8 @@ class PengeluaranController extends Controller
 
         if (auth()->user()->id_admin === null) {
             return view('Pages/SuperAdmin/Pengeluaran-TambahSuperAdmin', compact('kategori'));
-        } return view('Pages/Admin/Pengeluaran-TambahAdmin', compact('kategori'));
+        }
+        return view('Pages/Admin/Pengeluaran-TambahAdmin', compact('kategori'));
     }
     function PengeluaranUbah(Request $request)
     {
@@ -36,7 +38,8 @@ class PengeluaranController extends Controller
 
         if (auth()->user()->id_admin === null) {
             return view('Pages/SuperAdmin/Pengeluaran-UbahSuperAdmin', compact('pengeluaran', 'kategori'));
-        }return view('Pages/Admin/Pengeluaran-UbahAdmin', compact('pengeluaran', 'kategori'));
+        }
+        return view('Pages/Admin/Pengeluaran-UbahAdmin', compact('pengeluaran', 'kategori'));
     }
 
     function tambah(Request $request)
@@ -46,7 +49,7 @@ class PengeluaranController extends Controller
             'harga' => 'required|numeric|integer|max_digits:15',
             'kategori' => 'required|string|exists:kategori,id',
             'nama_item' => 'required|string|max:255',
-            'tanggal' => 'required|string|max:255',
+            'tanggal' => 'required|date',
         ]);
 
         $kategori = Kategori::findOrFail($validasi['kategori']);
@@ -65,7 +68,7 @@ class PengeluaranController extends Controller
             'harga' => 'required|numeric|integer|max_digits:15',
             'kategori' => 'required|string|exists:kategori,id',
             'nama_item' => 'required|string|max:255',
-            'tanggal' => 'required|string|max:255',
+            'tanggal' => 'required|date',
         ]);
 
         if ($request->id) {

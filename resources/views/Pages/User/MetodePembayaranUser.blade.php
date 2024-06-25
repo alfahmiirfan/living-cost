@@ -80,6 +80,7 @@
                 localStorage.setItem('selectedBankImage', bankImage);
             });
         });
+
     </script>
 </body>
 </html>

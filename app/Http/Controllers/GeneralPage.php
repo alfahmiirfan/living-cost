@@ -58,14 +58,14 @@ class GeneralPage extends Controller
     // {
     //     return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin');
     // }
-    function LaporanSuperAdmin()
-    {
-        return view('Pages/SuperAdmin/LaporanSuperAdmin');
-    }
-    function LaporanKategoriSuperAdmin()
-    {
-        return view('Pages/SuperAdmin/LaporanKategoriSuperAdmin');
-    }
+    // function LaporanSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/LaporanSuperAdmin');
+    // }
+    // function LaporanKategoriSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/LaporanKategoriSuperAdmin');
+    // }
     function CetakLaporan()
     {
         return view('Pages/SuperAdmin/CetakLaporan');
@@ -156,17 +156,6 @@ class GeneralPage extends Controller
     {
         return view('Pages/User/VirtualAccountUser');
     }
-
-    function ProfileUser()
-    {
-        return view('Pages/User/ProfileUser');
-    }
-    function UploadUser()
-    {
-        return view('Pages/User/UploadUser');
-    }
-
-
     // Akhir user
 
 }

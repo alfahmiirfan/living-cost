@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\OtentifikasiController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\SiswaController;
@@ -132,6 +133,11 @@ Route::controller(OtentifikasiController::class)->group(function () {
     Route::post('/Otp', 'otpVerifikasi');
 });
 
+Route::controller(LaporanController::class)->group(function () {
+    Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
+    Route::get('/LaporanKategoriSuperAdmin', 'LaporanKategoriSuperAdmin');
+});
+
 Route::controller(GeneralPage::class)->group(function () {
     // super admin
     Route::get('/', 'dashboardSuperAdmin');
@@ -157,8 +163,8 @@ Route::controller(GeneralPage::class)->group(function () {
     // Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
     // **
 
-    Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
-    Route::get('/LaporanKategoriSuperAdmin', 'LaporanKategoriSuperAdmin');
+    // Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
+    // Route::get('/LaporanKategoriSuperAdmin', 'LaporanKategoriSuperAdmin');
     Route::get('/CetakLaporan', 'CetakLaporan');
     Route::get('/CetakLaporanKategori', 'CetakLaporanKategori');
     // **
@@ -172,7 +178,7 @@ Route::controller(GeneralPage::class)->group(function () {
 
     // admin
     Route::get('/DashboardAdmin', 'DashboardAdmin');
-    Route::get('/PemasukanAdmin', 'PemasukanAdmin');
+    // Route::get('/PemasukanAdmin', 'PemasukanAdmin');
     // Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
     // Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
     // Route::get('/PengeluaranAdmin', 'PengeluaranAdmin');
@@ -189,9 +195,6 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/PembayaranUser', 'PembayaranUser');
     Route::get('/MetodePembayaranUser', 'MetodePembayaranUser');
     Route::get('/VirtualAccountUser', 'VirtualAccountUser');
-    Route::get('/ProfileUser', 'ProfileUser');
-    Route::get('/UploadUser', 'UploadUser');
-
     // Akhir user
 
 

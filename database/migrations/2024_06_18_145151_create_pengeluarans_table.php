@@ -15,7 +15,7 @@ return new class extends Migration {
 
             $table->string('nama_item');
             $table->string('kategori');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->unsignedInteger('jumlah');
             $table->unsignedBigInteger('harga');
 
