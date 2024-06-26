@@ -190,6 +190,7 @@ Route::controller(GeneralPage::class)->group(function () {
     // akhir admin
 
     // user
+    Route::get('/LoginUser', 'LoginUser');
     Route::get('/DashboardUser', 'DashboardUser');
     Route::get('/InformasiUser', 'InformasiUser');
     Route::get('/PembayaranUser', 'PembayaranUser');
