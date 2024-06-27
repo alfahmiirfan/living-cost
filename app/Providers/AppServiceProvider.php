@@ -6,19 +6,12 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public $service = [
-        \App\Http\Service\Siswa\ISiswaService::class => \App\Http\Service\Siswa\SiswaService::class,
-        \App\Http\Service\Income\IIncomeService::class => \App\Http\Service\Income\IncomeService::class,
-    ];
-
     /**
      * Register any application services.
      */
     public function register(): void
     {
-        foreach ($this->service as $interface => $service) {
-            $this->app->bind($interface, $service);
-        }
+        //
     }
 
     /**

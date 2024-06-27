@@ -198,19 +198,5 @@ Route::controller(GeneralPage::class)->group(function () {
     // Akhir user
 
 
-    //api
-    Route::prefix('v1')->group(function () {
-        Route::prefix('siswa')->group(function (){
-            Route::middleware('siswa')->post('/payment/{id}', [App\Http\Controllers\Siswa\PaymentController::class, 'action']);
-            Route::post('/login', [App\Http\Controllers\Siswa\LoginController::class, 'action']);
-            Route::get('/harga', [App\Http\Controllers\Siswa\GetHargaController::class, 'action']);
-        });
-        Route::post('/callback', [App\Http\Controllers\Siswa\CallbackController::class, 'action']);
-        Route::get('/transaction/{ref}', [App\Http\Controllers\Siswa\GetTransactionController::class, 'action']);
-        
-        Route::prefix('income')->group(function (){
-            Route::get('/list/siswa', [App\Http\Controllers\Income\GetBySiswaController::class, 'action'])->middleware('siswa');
-        });
-    });
 
 });
