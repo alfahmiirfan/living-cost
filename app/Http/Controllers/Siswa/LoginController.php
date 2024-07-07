@@ -36,7 +36,8 @@ class LoginController extends Controller
                 'nisn' => $siswa->nisn,
                 'name' => $siswa->nama,
                 'role' => 'siswa'
-            ], 60 * 60 * 24 * 30 * 12)
+            ], 60 * 60 * 24 * 30 * 12),
+            'name' => $siswa->nama
         ]);
     }
 }

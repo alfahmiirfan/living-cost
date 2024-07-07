@@ -91,7 +91,7 @@ class SiswaWebController extends Controller
             $status = $response->getStatusCode();
             if ($status === 200) {
                 $response = json_decode($response->getContent());
-                $data = $response->data;
+                $data = $response->data->data;
 
                 $va = $data->pay_code;
 

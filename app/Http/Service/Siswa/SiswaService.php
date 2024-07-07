@@ -258,9 +258,13 @@ class SiswaService implements ISiswaService
         $privateKey = env('TRIPAY_PRIVATE_KEY');
         $mode = Constant::MODE_DEVELOPMENT;
 
-        $guzzleOption = [];
+        $guzzleOption = [
+            'verify' => false
+        ];
 
         $client = new Client($merchantCode, $apiKey, $privateKey, $mode, $guzzleOption);
+        // $debugs = $client->debugs();
+        // dd($debugs);
         $transaction = new Transaction($client);
 
         $email = str_replace(' ', '', $siswa->nama) . '@gmail.com';
@@ -274,8 +278,6 @@ class SiswaService implements ISiswaService
                 'expired_time' => Helper::makeTimestamp('6 HOUR')
             ]);
 
-        // $debugs = $client->debugs();
-        // dd($debugs);
         return json_decode($data->getBody()->getContents(), true);
     }
 }
