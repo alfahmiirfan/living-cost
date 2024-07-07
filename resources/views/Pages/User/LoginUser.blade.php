@@ -14,7 +14,7 @@
             <div class="w-full px-6 pt-8">
                 <div class="flex justify-center pb-8 pt-8">
                     <div class="">
-                        <img src="https://www.sman10pentagonkaur.sch.id/wp-content/uploads/2020/03/logo.png" alt="" class="">
+                        <img src="image/logo-sma.png" alt="" class="">
                     </div>
                 </div>
                 <form id="login-form" action="" method="POST" class="rounded-md bg-white p-8">

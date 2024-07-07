@@ -16,7 +16,7 @@
             </div>
             <div class="w-full mx-auto px-20 flex-col items-center ">
                 <div class=" pt-8 text-center">
-                    <img src="https://www.sman10pentagonkaur.sch.id/wp-content/uploads/2020/03/logo.png" alt="" class=" m-auto rounded-full object-cover lg:w-64 lg:h-64">
+                    <img src="image/logo-sma.png" alt="" class=" m-auto rounded-full object-cover lg:w-64 lg:h-64">
                 </div>
             </div>
         </div>

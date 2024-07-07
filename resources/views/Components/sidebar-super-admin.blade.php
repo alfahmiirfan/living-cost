@@ -1,7 +1,7 @@
 <div class="fixed left-0 top-0">
     <aside class="fixed top-0 flex h-full w-[20%] flex-col items-center justify-between border-r bg-[#085288] px-6 transition duration-300">
         <div class="pt-8 text-center">
-            <img src="https://www.sman10pentagonkaur.sch.id/wp-content/uploads/2020/03/logo.png" alt="" class="m-auto rounded-full object-cover lg:h-36 lg:w-36">
+            <img src="image/logo-sma.png" alt="" class="m-auto rounded-full object-cover lg:h-36 lg:w-36">
         </div>
         <div class="absolute top-56">
             <ul class="">
