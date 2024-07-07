@@ -8,6 +8,7 @@ use App\Models\Month;
 use App\Models\Siswa;
 use App\Models\Transaction as ModelsTransaction;
 use App\Models\Year;
+use Illuminate\Support\Facades\Hash;
 use ZerosDev\TriPay\Client;
 use ZerosDev\TriPay\Support\Constant;
 use ZerosDev\TriPay\Support\Helper;
@@ -167,12 +168,13 @@ class SiswaService implements ISiswaService
      */
     public function Login(string $nisn, string $password)
     {
-        $siswa = Siswa::where('nisn', $nisn)->where('password', $password)->first();
+        $siswa = Siswa::where('nisn', $nisn)->first();
         if ($siswa) {
-            return $siswa;
-        } else {
-            return null;
+            if (Hash::check($password, $siswa->password)) {
+                return $siswa;
+            }
         }
+        return null;
     }
 
     /**

@@ -11,7 +11,6 @@ class GetBySiswaController extends Controller
 {
     public function __construct(public IIncomeService $iIncomeService)
     {
-        
     }
 
     public function action(Request $request)

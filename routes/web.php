@@ -3,8 +3,10 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\OtentifikasiController;
+use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\SiswaWebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
 
@@ -76,7 +78,7 @@ use App\Http\Controllers\GeneralPage;
 // });
 
 //pendataan siswa super admin
-Route::controller(SiswaController::class)->group(function () {
+Route::controller(SiswaController::class)->middleware('superadmin')->group(function () {
     Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswa');
     Route::get('/PendataanSiswaSuperAdmin/hapus', 'hapus');
     Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambah');
@@ -85,7 +87,7 @@ Route::controller(SiswaController::class)->group(function () {
     Route::post('/Pendataan-UbahSuperAdmin', 'edit');
 });
 //pendataan siswa admin
-Route::controller(SiswaController::class)->group(function () {
+Route::controller(SiswaController::class)->middleware('admin')->group(function () {
     Route::get('/PendataanSiswaAdmin', 'PendataanSiswa');
     Route::get('/PendataanSiswaAdmin/hapus', 'hapus');
     Route::get('/PendataanSiswa-TambahAdmin', 'PendataanTambah');
@@ -94,7 +96,8 @@ Route::controller(SiswaController::class)->group(function () {
     Route::post('/PendataanSiswa-UbahAdmin', 'edit');
 });
 
-Route::controller(AdminController::class)->group(function () {
+// ### DONE
+Route::controller(AdminController::class)->middleware('superadmin')->group(function () {
     Route::get('/PengelolaanAdminSuperAdmin', 'PengelolaanAdminSuperAdmin');
     Route::get('/PengelolaanAdminSuperAdmin/hapus', 'hapus');
     Route::get('/PengelolaanAdmin-TambahSuperAdmin', 'PengelolaanAdminTambahSuperAdmin');
@@ -102,8 +105,10 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/PengelolaanAdmin-UbahSuperAdmin', 'PengelolaanAdminUbahSuperAdmin');
     Route::post('/PengelolaanAdmin-UbahSuperAdmin', 'edit');
 });
+
+// ### DONE
 //pengeluaran super admin
-Route::controller(PengeluaranController::class)->group(function () {
+Route::controller(PengeluaranController::class)->middleware('superadmin')->group(function () {
     Route::get('/PengeluaranSuperAdmin', 'Pengeluaran');
     Route::get('/PengeluaranSuperAdmin/hapus', 'hapus');
     Route::get('/Pengeluaran-TambahSuperAdmin', 'PengeluaranTambah');
@@ -112,7 +117,7 @@ Route::controller(PengeluaranController::class)->group(function () {
     Route::post('/Pengeluaran-UbahSuperAdmin', 'edit');
 });
 // pengeluaran admin
-Route::controller(PengeluaranController::class)->group(function () {
+Route::controller(PengeluaranController::class)->middleware('admin')->group(function () {
     Route::get('/PengeluaranAdmin', 'Pengeluaran');
     Route::get('/PengeluaranAdmin/hapus', 'hapus');
     Route::get('/Pengeluaran-TambahAdmin', 'PengeluaranTambah');
@@ -131,19 +136,43 @@ Route::controller(OtentifikasiController::class)->group(function () {
     Route::post('/NewPassword', 'gantiPassword');
     Route::get('/Otp', 'Otp');
     Route::post('/Otp', 'otpVerifikasi');
+    Route::get('/Logout', 'logout');
 });
 
-Route::controller(LaporanController::class)->group(function () {
+// ### DONE
+Route::controller(LaporanController::class)->middleware('superadmin')->group(function () {
     Route::get('/LaporanSuperAdmin', 'LaporanSuperAdmin');
     Route::get('/LaporanKategoriSuperAdmin', 'LaporanKategoriSuperAdmin');
 });
 
+Route::controller(SiswaWebController::class)->group(function () {
+    Route::get('/LoginUser', 'LoginUser');
+    Route::post('/LoginUser', 'login');
+
+    Route::middleware('siswaWeb')->group(function () {
+        Route::get('/DashboardUser', 'DashboardUser');
+        Route::get('/InformasiUser', 'InformasiUser');
+        Route::get('/PembayaranUser', 'PembayaranUser');
+        Route::get('/MetodePembayaranUser', 'MetodePembayaranUser');
+        Route::get('/VirtualAccountUser', 'VirtualAccountUser');
+    });
+});
+
+Route::controller(PemasukanController::class)->group(function () {
+    Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
+    Route::post('/PemasukanSuperAdmin', 'updateBiaya');
+    Route::get('/PemasukanAdmin', 'pemasukanSuperAdmin');
+    
+    // Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
+    // Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
+});
+
 Route::controller(GeneralPage::class)->group(function () {
     // super admin
-    Route::get('/', 'dashboardSuperAdmin');
-    Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
-    Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
-    Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
+    Route::get('/', 'dashboardSuperAdmin')->middleware('superadmin');
+    // Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
+    // Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
+    // Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
 
     // **
     // Route::get('/PengeluaranSuperAdmin', 'pengeluaranSuperAdmin');
@@ -177,7 +206,7 @@ Route::controller(GeneralPage::class)->group(function () {
     // akhir super admin
 
     // admin
-    Route::get('/DashboardAdmin', 'DashboardAdmin');
+    Route::get('/DashboardAdmin', 'DashboardAdmin')->middleware('admin');
     // Route::get('/PemasukanAdmin', 'PemasukanAdmin');
     // Route::get('/Pemasukan-StatusAdmin', 'PemasukanStatusAdmin');
     // Route::get('/Pemasukan-LihatAdmin', 'PemasukanLihatAdmin');
@@ -188,30 +217,4 @@ Route::controller(GeneralPage::class)->group(function () {
     // Route::get('/PendataanSiswa-TambahAdmin', 'PendataanSiswaTambahAdmin');
     // Route::get('/PendataanSiswa-UbahAdmin', 'PendataanSiswaUbahAdmin');
     // akhir admin
-
-    // user
-    Route::get('/LoginUser', 'LoginUser');
-    Route::get('/DashboardUser', 'DashboardUser');
-    Route::get('/InformasiUser', 'InformasiUser');
-    Route::get('/PembayaranUser', 'PembayaranUser');
-    Route::get('/MetodePembayaranUser', 'MetodePembayaranUser');
-    Route::get('/VirtualAccountUser', 'VirtualAccountUser');
-    // Akhir user
-
-    //api
-    Route::prefix('v1')->group(function () {
-        Route::prefix('siswa')->group(function (){
-            Route::middleware('siswa')->post('/payment/{id}', [App\Http\Controllers\Siswa\PaymentController::class, 'action']);
-            Route::post('/login', [App\Http\Controllers\Siswa\LoginController::class, 'action']);
-            Route::get('/harga', [App\Http\Controllers\Siswa\GetHargaController::class, 'action']);
-        });
-        Route::post('/callback', [App\Http\Controllers\Siswa\CallbackController::class, 'action']);
-        Route::get('/transaction/{ref}', [App\Http\Controllers\Siswa\GetTransactionController::class, 'action']);
-
-        Route::prefix('income')->group(function (){
-            Route::get('/list/siswa', [App\Http\Controllers\Income\GetBySiswaController::class, 'action'])->middleware('siswa');
-        });
-    });
-
-
 });

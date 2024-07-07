@@ -10,13 +10,14 @@ class AdminController extends Controller
 {
     function PengelolaanAdminSuperAdmin(Request $request)
     {
-        $admin = User::where(function (Builder $query) use ($request) {
-            // $query->whereKeyNot();
-            $query->whereNotNull('id_admin')->whereNull('nisn');
-            if ($request->pencarian) {
-                $query->whereAny(['email', 'id_admin', 'nama'], 'LIKE', "%{$request->pencarian}%");
-            }
-        })->latest()->paginate(5);
+        $admin = User::select(['id', 'id_number AS id_admin', 'username AS email', 'name AS nama'])
+            ->where(function (Builder $query) use ($request) {
+                // $query->whereKeyNot();
+                $query->whereNotNull('id_number');
+                if ($request->pencarian) {
+                    $query->whereAny(['username', 'id_number', 'name'], 'LIKE', "%{$request->pencarian}%");
+                }
+            })->latest()->paginate(5);
 
         return view('Pages/SuperAdmin/PengelolaanAdminSuperAdmin', compact('admin'));
     }
@@ -26,8 +27,9 @@ class AdminController extends Controller
     }
     function PengelolaanAdminUbahSuperAdmin(Request $request)
     {
-    // $query->whereKeyNot();
-    $admin = User::whereKey($request->id)->whereNotNull('id_admin')->whereNull('nisn')->firstOrFail();
+        // $query->whereKeyNot();
+        $admin = User::select(['id', 'id_number AS id_admin', 'username AS email', 'name AS nama'])
+            ->whereKey($request->id)->whereNotNull('id_number')->firstOrFail();
 
         return view('Pages/SuperAdmin/PengelolaanAdmin-UbahSuperAdmin', compact('admin'));
     }
@@ -35,13 +37,18 @@ class AdminController extends Controller
     function tambah(Request $request)
     {
         $validasi = $request->validate([
-            'id_admin' => 'required|string|max:255|unique:users,id_admin',
-            'email' => 'required|string|max:255|email|unique:users,email',
+            'id_admin' => 'required|string|max:255|unique:users,id_number',
+            'email' => 'required|string|max:255|email|unique:users,username',
             'kata_sandi' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
         ]);
 
-        User::create($validasi);
+        User::create([
+            'password' => $validasi['kata_sandi'],
+            'id_number' => $validasi['id_admin'],
+            'username' => $validasi['email'],
+            'name' => $validasi['nama'],
+        ]);
 
         return redirect('/PengelolaanAdminSuperAdmin');
     }
@@ -57,18 +64,18 @@ class AdminController extends Controller
 
         if ($request->id) {
             // $query->whereKeyNot();
-            $admin = User::whereKey($request->id)->whereNotNull('id_admin')->whereNull('nisn')->firstOrFail();
-            $cek_id = User::whereKeyNot($request->id)->where('id_admin', $validasi['id_admin'])->exists();
-            $cek_email = User::whereKeyNot($request->id)->where('email', $validasi['email'])->exists();
+            $admin = User::whereKey($request->id)->whereNotNull('id_number')->firstOrFail();
+            $cek_id = User::whereKeyNot($request->id)->where('id_number', $validasi['id_admin'])->exists();
+            $cek_email = User::whereKeyNot($request->id)->where('username', $validasi['email'])->exists();
 
             if (!$cek_id && !$cek_email) {
-                $admin->nama = $validasi['nama'];
-                $admin->email = $validasi['email'];
-                $admin->id_admin = $validasi['id_admin'];
+                $admin->name = $validasi['nama'];
+                $admin->username = $validasi['email'];
+                $admin->id_number = $validasi['id_admin'];
                 $admin->save();
 
                 if ($validasi['kata_sandi'] !== null) {
-                    $admin->update(['kata_sandi' => $validasi['kata_sandi']]);
+                    $admin->update(['password' => $validasi['kata_sandi']]);
                 }
 
                 return redirect('/PengelolaanAdminSuperAdmin');
@@ -87,8 +94,8 @@ class AdminController extends Controller
     {
         if ($request->id) {
             // $query->whereKeyNot();
-            $admin = User::whereKey($request->id)->whereNotNull('id_admin')->whereNull('nisn')->firstOrFail();
-            $admin->delete();
+            $admin = User::whereKey($request->id)->whereNotNull('id_number')->firstOrFail();
+            $admin->forceDelete();
 
             return back();
         }

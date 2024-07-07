@@ -26,7 +26,7 @@ class OtentifikasiController extends Controller
             abort(404);
         }
 
-        $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
+        $user = User::where('username', $request->email)->where('otp', $request->otp)->firstOrFail();
 
         return view('Pages/NewPassword', compact('user'));
     }
@@ -36,7 +36,7 @@ class OtentifikasiController extends Controller
             abort(404);
         }
 
-        $user = User::where('email', $request->email)->firstOrFail();
+        $user = User::where('username', $request->email)->firstOrFail();
 
         return view('Pages/Otp', compact('user'));
     }
@@ -44,23 +44,22 @@ class OtentifikasiController extends Controller
     public function login(Request $request)
     {
         $validasi = $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,email',
+            'email' => 'required|string|max:255|email|exists:users,username',
             'kata_sandi' => 'required|string|max:255',
         ]);
 
-        $user = User::where('email', $request['email'])
+        $user = User::where('username', $request['email'])
             ->firstOrFail();
 
-        if (Hash::check($validasi['kata_sandi'], $user->kata_sandi)) {
+        if (Hash::check($validasi['kata_sandi'], $user->password)) {
             Auth::login($user);
 
-            if ($user->id_admin) {
+            if ($user->id_number) {
                 // redirect to admin page
                 return redirect('/DashboardAdmin');
-            } else if ($user->nisn === null) {
-                // redirect to super admin page
-                return redirect('/');
             }
+
+            return redirect('/');
         }
 
         return false;
@@ -69,10 +68,10 @@ class OtentifikasiController extends Controller
     public function lupaPassword(Request $request)
     {
         $validasi = $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,email',
+            'email' => 'required|string|max:255|email|exists:users,username',
         ]);
 
-        $user = User::where('email', $request['email'])
+        $user = User::where('username', $request['email'])
             ->firstOrFail();
 
         try {
@@ -80,7 +79,7 @@ class OtentifikasiController extends Controller
 
             $user->update(['otp' => $otp]);
 
-            Mail::to($user->email)->send(new OtpMailer($user->toArray()));
+            Mail::to($user->username)->send(new OtpMailer($user->toArray()));
         } catch (\Exception $e) {
             $user->update(['otp' => null]);
 
@@ -88,35 +87,41 @@ class OtentifikasiController extends Controller
         }
 
         // redirect to otp verification page
-        return redirect('/Otp?email=' . $user->email);
+        return redirect('/Otp?email=' . $user->username);
     }
 
     public function otpVerifikasi(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,email',
+            'email' => 'required|string|max:255|email|exists:users,username',
             'otp' => 'required|string|max:255|exists:users,otp',
         ]);
 
-        $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
+        $user = User::where('username', $request->email)->where('otp', $request->otp)->firstOrFail();
 
         // redirect to change password page
-        return redirect('/NewPassword?email=' . $user->email . '&otp=' . $user->otp);
+        return redirect('/NewPassword?email=' . $user->username . '&otp=' . $user->otp);
     }
 
     public function gantiPassword(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,email',
+            'email' => 'required|string|max:255|email|exists:users,username',
             'otp' => 'required|string|max:255|exists:users,otp',
             'kata_sandi' => 'required|string|max:255|confirmed',
         ]);
 
-        $user = User::where('email', $request->email)->where('otp', $request->otp)->firstOrFail();
+        $user = User::where('username', $request->email)->where('otp', $request->otp)->firstOrFail();
 
-        $user->update(['kata_sandi' => $request->kata_sandi, 'otp' => null]);
+        $user->update(['password' => $request->kata_sandi, 'otp' => null]);
 
         // redirect to login page
+        return redirect('/Login');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
         return redirect('/Login');
     }
 }

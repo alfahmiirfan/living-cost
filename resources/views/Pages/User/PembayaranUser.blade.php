@@ -1,19 +1,21 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Pembayaran Living Cost</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 </head>
+
 <body>
     <x-layout-user>
-        <x-navbar-user title="Muhammad Alfahmi Irfan" />
-        <div class="pt-4 pb-4">
-            <h1 class="text-base font-bold ">Pembayaran Living Cost</h1>
+        <x-navbar-user title="{{ request()->cookie('username') }}" />
+        <div class="pb-4 pt-4">
+            <h1 class="text-base font-bold">Pembayaran Living Cost</h1>
         </div>
-        <div class="pr-8 pb-4">
-            <button id="dropdownYears" data-dropdown-toggle="dropdown-years" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
+        <div class="pb-4 pr-8">
+            <button id="dropdownYears" data-dropdown-toggle="dropdown-years" class="inline-flex items-center rounded-lg bg-[#F5E81D] px-5 py-1 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                 <div class="pr-2">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 2.5V7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -24,27 +26,23 @@
                     </svg>
                 </div>
                 Tahun
-                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <svg class="ms-3 h-2.5 w-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                 </svg>
             </button>
             <!-- Dropdown menu -->
-            <div id="dropdown-years" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <div id="dropdown-years" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownYears">
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2023</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2024</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2025</a>
-                    </li>
+                    @foreach ($years as $key => $year)
+                        <li>
+                            <a href="/PembayaranUser?year={{ $year }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
-        <div class="pr-8 pb-4">
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
+        {{-- <div class="pb-4 pr-8">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex items-center rounded-lg bg-[#F5E81D] px-5 py-1 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                 <div class="pr-2">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 2.5V7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -55,12 +53,12 @@
                     </svg>
                 </div>
                 Bulan
-                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <svg class="ms-3 h-2.5 w-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                 </svg>
             </button>
             <!-- Dropdown menu -->
-            <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <div id="dropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                     <li>
                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Januari</a>
@@ -100,11 +98,11 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
         {{-- Table --}}
         <div class="relative overflow-x-auto">
-            <table class="w-full text-sm text-left rtl:text-right">
-                <thead class="text-sm text-white uppercase bg-yale-blue dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-left text-sm rtl:text-right">
+                <thead class="bg-yale-blue text-sm uppercase text-white dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-2 py-2">
                             No
@@ -121,38 +119,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $dummyData = [ 
-                        [
-                            'no' => 1,
-                            'tahun' => '2023',
-                            'bulan' => 'November',
-                        ],
-                        
-                        ];
-                        ?>
-                    <?php foreach ($dummyData as $index => $data): ?>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-sm">
-                        <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <?=$data['no']?>
-                        </th>
-                        <td class="px-2 py-2">
-                            <?=$data['tahun']?>
-                        </td>
-                        <td class="px-2 py-2">
-                            <?=$data['bulan']?>
-                        </td>
-                        <?php endforeach; ?>
-                        <td class="px-2 py-2">
-                            <div class="flex">
-                                <a href="/MetodePembayaranUser">
-                                    <button type="submit" class="px-5 py-2 text-sm font-medium text-white inline-flex items-center bg-[#085288] hover:bg-yale-blue-300 focus:ring-4 focus:outline-none focus:ring-yale-blue-400 rounded-lg text-center dark:bg-yale-blue-600 dark:hover:bg-yale-blue-700 dark:focus:ring-yale-blue-800">
-                                        <span class="">Bayar</span>
-                                    </button>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach ($data as $key => $item)
+                        <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                            <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                                {{ $loop->iteration }}
+                            </th>
+                            <td class="px-2 py-2">
+                                {{ $item->year }}
+                            </td>
+                            <td class="px-2 py-2">
+                                {{ $item->month }}
+                            </td>
+                            <td class="px-2 py-2">
+                                @if (strtolower($item->status) === 'belum bayar')
+                                    <div class="flex">
+                                        <a href="/MetodePembayaranUser?id={{ $item->id }}">
+                                            <button type="submit" class="hover:bg-yale-blue-300 focus:ring-yale-blue-400 dark:bg-yale-blue-600 dark:hover:bg-yale-blue-700 dark:focus:ring-yale-blue-800 inline-flex items-center rounded-lg bg-[#085288] px-5 py-2 text-center text-sm font-medium text-white focus:outline-none focus:ring-4">
+                                                <span class="">Bayar</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -162,4 +152,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>
+
 </html>

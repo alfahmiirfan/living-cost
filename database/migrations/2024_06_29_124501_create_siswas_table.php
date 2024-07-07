@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
 
-            $table->string('id_number', 255)->unique()->nullable();
-            $table->string('name', 255);
-            $table->string('username');
+            $table->string('nisn')->unique();
+            $table->string('tahun_masuk');
             $table->string('password');
-            $table->string('otp', 6)->nullable();
+            $table->string('angkatan');
+            $table->string('nama');
+
+            $table->foreignId('year_id')->constrained('year');
 
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('siswa');
     }
 };

@@ -13,18 +13,18 @@ class GeneralPage extends Controller
     {
         return view('Pages/SuperAdmin/DashboardSuperAdmin');
     }
-    function PemasukanSuperAdmin()
-    {
-        return view('Pages/SuperAdmin/PemasukanSuperAdmin');
-    }
-    function PemasukanStatusSuperAdmin()
-    {
-        return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');
-    }
-    function PemasukanLihatSuperAdmin()
-    {
-        return view('Pages/SuperAdmin/Pemasukan-LihatSuperAdmin');
-    }
+    // function PemasukanSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/PemasukanSuperAdmin');
+    // }
+    // function PemasukanStatusSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');
+    // }
+    // function PemasukanLihatSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/Pemasukan-LihatSuperAdmin');
+    // }
     // function PengeluaranSuperAdmin()
     // {
     //     return view('Pages/SuperAdmin/PengeluaranSuperAdmin');
@@ -136,30 +136,30 @@ class GeneralPage extends Controller
     // akhir admin
 
     // user
-    function LoginUser()
-    {
-        return view('Pages/User/LoginUser');
-    }
-    function DashboardUser()
-    {
-        return view('Pages/User/DashboardUser');
-    }
-    function InformasiUser()
-    {
-        return view('Pages/User/InformasiUser');
-    }
-    function PembayaranUser()
-    {
-        return view('Pages/User/PembayaranUser');
-    }
-    function MetodePembayaranUser()
-    {
-        return view('Pages/User/MetodePembayaranUser');
-    }
-    function VirtualAccountUser()
-    {
-        return view('Pages/User/VirtualAccountUser');
-    }
+    // function LoginUser()
+    // {
+    //     return view('Pages/User/LoginUser');
+    // }
+    // function DashboardUser()
+    // {
+    //     return view('Pages/User/DashboardUser');
+    // }
+    // function InformasiUser()
+    // {
+    //     return view('Pages/User/InformasiUser');
+    // }
+    // function PembayaranUser()
+    // {
+    //     return view('Pages/User/PembayaranUser');
+    // }
+    // function MetodePembayaranUser()
+    // {
+    //     return view('Pages/User/MetodePembayaranUser');
+    // }
+    // function VirtualAccountUser()
+    // {
+    //     return view('Pages/User/VirtualAccountUser');
+    // }
     // Akhir user
 
 }

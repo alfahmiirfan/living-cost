@@ -9,10 +9,10 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Income extends Model implements HasMedia
 {
-    use InteractsWithMedia,SoftDeletes;
+    use InteractsWithMedia, SoftDeletes;
 
     protected $table = 'income';
-    
+
     protected $guarded = ['id'];
 
     public function siswa()

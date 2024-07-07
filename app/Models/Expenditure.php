@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Month extends Model
+class Expenditure extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'month';
+    protected $table = 'expenditure';
 
-    protected $guarded = ['id'];
-
-    public function income()
-    {
-        return $this->hasMany(Income::class);
-    }
+    protected $fillable = [
+        'category',
+        'amount',
+        'price',
+        'name',
+        'date'
+    ];
 }
