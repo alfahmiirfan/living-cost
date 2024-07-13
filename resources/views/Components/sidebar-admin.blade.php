@@ -8,7 +8,7 @@
                 <div class="">
                     <li>
                         @php
-                            $path1 = ['/DashboardAdmin'];
+                            $path1 = ['DashboardAdmin'];
                         @endphp
                         <a href="/DashboardAdmin" class="@if (in_array(Request::path(), $path1)) bg-[#06416C] 
         @else
@@ -40,7 +40,7 @@
                 <div class="">
                     <li>
                         @php
-                            $path2 = ['/PemasukanAdmin', '/Pemasukan-StatusAdmin'];
+                            $path2 = ['PemasukanAdmin', 'Pemasukan-StatusAdmin'];
                         @endphp
                         <a href="/PemasukanAdmin" class="@if (in_array(Request::path(), $path2)) bg-[#06416C] 
         @else
@@ -57,7 +57,7 @@
                 <div class="">
                     <li>
                         @php
-                            $path3 = ['/PengeluaranAdmin', '/Pengeluaran-TambahAdmin', '/Pengeluaran-UbahAdmin'];
+                            $path3 = ['PengeluaranAdmin', 'Pengeluaran-TambahAdmin', 'Pengeluaran-UbahAdmin'];
                         @endphp
                         <a href="/PengeluaranAdmin" class="@if (in_array(Request::path(), $path3)) bg-[#06416C] 
         @else
@@ -74,7 +74,7 @@
                 <div class="">
                     <li>
                         @php
-                            $path3 = ['/PendataanSiswaAdmin', '/PendataanSiswa-TambahAdmin', '/PendataanSiswa-UbahAdmin'];
+                            $path3 = ['PendataanSiswaAdmin', 'PendataanSiswa-TambahAdmin', 'PendataanSiswa-UbahAdmin'];
                         @endphp
                         <a href="/PendataanSiswaAdmin" class="@if (in_array(Request::path(), $path3)) bg-[#06416C] 
         @else
