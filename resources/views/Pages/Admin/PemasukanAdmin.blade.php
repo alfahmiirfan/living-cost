@@ -15,7 +15,7 @@
             <x-search-super-admin />
             <div class="top-30 absolute right-10 flex items-center justify-between rounded-md">
                 <div class="flex pr-8">
-                    <!-- Modal toggle -->
+                    {{-- <!-- Modal toggle -->
                     <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="inline-flex items-center rounded-lg bg-[#F5E81D] px-5 py-1 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                         Update Biaya Living Cost
                     </button>
@@ -51,7 +51,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="pl-8">
                         <button id="dropdownYears" data-dropdown-toggle="dropdown-years" class="inline-flex items-center rounded-lg bg-[#F5E81D] px-5 py-1 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                             <div class="pr-2">
