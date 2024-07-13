@@ -132,7 +132,7 @@
                             Bulan
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Tanggal Upload
+                            Tanggal Bayar
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Aksi
@@ -161,7 +161,7 @@
                                 {{ $income->upload_date }}
                             </td>
                             <td class="px-6 py-2">
-                                <span class="inline-flex items-center rounded-md bg-[#32D62F] px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span>
+                                <span class="{{ strtolower($income->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($income->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span>
                             </td>
                         </tr>
                     @endforeach

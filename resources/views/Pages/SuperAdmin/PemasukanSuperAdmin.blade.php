@@ -72,9 +72,9 @@
                         <form id="dropdown-years" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownYears">
                                 @foreach ($years as $key => $year)
-                                    <li>
-                                        <button type="submit" name="year" value="{{ $year }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</button>
-                                    </li>
+                                <li>
+                                    <button type="submit" name="year" value="{{ $year }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</button>
+                                </li>
                                 @endforeach
                             </ul>
                         </form>
@@ -101,9 +101,9 @@
                         <input type="hidden" name="year" value="{{ request()->query('year') }}">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             @foreach (['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $key => $month)
-                                <li>
-                                    <button type="submit" name="month" value="{{ $month }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $month }}</button>
-                                </li>
+                            <li>
+                                <button type="submit" name="month" value="{{ $month }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $month }}</button>
+                            </li>
                             @endforeach
                         </ul>
                     </form>
@@ -132,7 +132,7 @@
                             Bulan
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Tanggal Upload
+                            Tanggal Bayar
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Aksi
@@ -141,29 +141,29 @@
                 </thead>
                 <tbody>
                     @foreach ($incomes as $key => $income)
-                        <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                            <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                                {{ $loop->iteration }}
-                            </th>
-                            <td class="px-6 py-2">
-                                {{ $income->name }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $income->nisn }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $income->year }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $income->month }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $income->upload_date }}
-                            </td>
-                            <td class="px-6 py-2">
-                                <span class="inline-flex items-center rounded-md bg-[#32D62F] px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span>
-                            </td>
-                        </tr>
+                    <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                            {{ $loop->iteration }}
+                        </th>
+                        <td class="px-6 py-2">
+                            {{ $income->name }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $income->nisn }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $income->year }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $income->month }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $income->upload_date }}
+                        </td>
+                        <td class="px-6 py-2">
+                            <span class="{{ strtolower($income->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($income->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

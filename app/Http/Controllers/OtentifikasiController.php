@@ -62,7 +62,7 @@ class OtentifikasiController extends Controller
             return redirect('/');
         }
 
-        return false;
+        return back () -> withInput() -> withErrors(['email'=>'Email atau Password Salah']) ;
     }
 
     public function lupaPassword(Request $request)

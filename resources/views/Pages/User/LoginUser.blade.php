@@ -20,15 +20,13 @@
                 <form id="login-form" action="" method="POST" class="rounded-md bg-white p-8">
                     @csrf
                     <h1 class="mb-1 pb-8 text-center text-2xl font-bold text-gray-800">LOGIN </h1>
-                    <div class="mb-8 flex items-center rounded-2xl border-2 px-3 py-2">
-                        <input id="nisn" class="w-full border-none pl-2 outline-none" type="nisn" name="nisn" placeholder="Masukkan NISN" required />
+                    <div class="pb-6">
+                        <input id="nisn" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" type="nisn" name="nisn" placeholder="Masukkan NISN" required />
                     </div>
                     <div class="">
                         <div class="pb-6">
                             <label for="password" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
                             <div class="relative">
-                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                                </div>
                                 <input name="kata_sandi" type="password" id="password" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Masukkan Password" required value="" />
                             </div>
                         </div>
