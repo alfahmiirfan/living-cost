@@ -14,7 +14,7 @@
         <div class="flex items-center justify-between pb-4 pt-4">
             <h1 class="text-base font-bold">Dashboard </h1>
             <div class="rounded-md">
-                <a href="#">
+                <a href="/LogoutUser">
                     <button type="button" class="m-auto rounded-lg bg-[#F5E81D] px-3 py-2 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />

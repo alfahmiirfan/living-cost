@@ -148,6 +148,7 @@ Route::controller(LaporanController::class)->middleware('superadmin')->group(fun
 Route::controller(SiswaWebController::class)->group(function () {
     Route::get('/LoginUser', 'LoginUser');
     Route::post('/LoginUser', 'login');
+    Route::get('/LogoutUser', 'logout');
 
     Route::middleware('siswaWeb')->group(function () {
         Route::get('/DashboardUser', 'DashboardUser');

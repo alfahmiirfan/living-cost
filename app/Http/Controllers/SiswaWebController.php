@@ -35,7 +35,8 @@ class SiswaWebController extends Controller
         $status = $response->getStatusCode();
         if ($status === 200 && $siswa->count()) {
             $response = json_decode($response->getContent());
-            $data = $response->data;
+            // $data = $response->data;
+            $data = Income::where('siswa_id', $request->attributes->get('token')->id)->where('year', $request->year ?? end($years))->paginate(6);
 
             return view('Pages/User/InformasiUser', compact('data', 'years'));
         }
@@ -58,7 +59,8 @@ class SiswaWebController extends Controller
         $status = $response->getStatusCode();
         if ($status === 200 && $siswa->count()) {
             $response = json_decode($response->getContent());
-            $data = $response->data;
+            // $data = $response->data;
+            $data = Income::where('siswa_id', $request->attributes->get('token')->id)->where('year', $request->year ?? end($years))->paginate(6);
 
             return view('Pages/User/PembayaranUser', compact('data', 'years'));
         }
@@ -125,5 +127,14 @@ class SiswaWebController extends Controller
         }
 
         return back()->withInput()->withErrors(['nisn' => "NISN or Password doesn't correct"]);
+    }
+
+    function logout()
+    {
+        return redirect('/LoginUser')->withCookies([
+            Cookie::forget('username'),
+            Cookie::forget('access_token'),
+            Cookie::forget('refresh_token')
+        ]);
     }
 }

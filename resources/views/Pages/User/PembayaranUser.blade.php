@@ -122,7 +122,7 @@
                     @foreach ($data as $key => $item)
                         <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
                             <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                                {{ $loop->iteration }}
+                                {{ ((request()->query('page') ?? 1) - 1) * 6 + $loop->iteration }}
                             </th>
                             <td class="px-2 py-2">
                                 {{ $item->year }}
@@ -146,6 +146,7 @@
                 </tbody>
             </table>
         </div>
+        {{ $data->appends(request()->query())->links() }}
 
         <x-tab-user />
     </x-layout-user>
