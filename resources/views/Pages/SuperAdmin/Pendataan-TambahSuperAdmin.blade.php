@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Pemasukan Super Admin</title>
+    <title>Pendataan Siswa - Tambah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                         </div>
                         <input name="nama" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Masukkan nama siswa" required value="{{ old('nama') }}" />
                         @error('nama')
-                            <p>{{ $message }}</p>
+                        <p>{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -48,7 +49,7 @@
                             </div>
                             <input name="nisn" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Masukkan NISN" required value="{{ old('nisn') }}" />
                             @error('nisn')
-                                <p>{{ $message }}</p>
+                            <p>{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -62,7 +63,7 @@
                             </div>
                             <input name="kata_sandi" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="******" required value="{{ old('kata_sandi') }}" />
                             @error('kata_sandi')
-                                <p>{{ $message }}</p>
+                            <p>{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -77,11 +78,11 @@
                             {{-- <input name="tahun_masuk" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{old('tahun_masuk')}}" /> --}}
                             <select name="tahun_masuk" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
                                 @foreach ($daftarTahun as $key => $tahun)
-                                    <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
                                 @endforeach
                             </select>
                             @error('tahun_masuk')
-                                <p>{{ $message }}</p>
+                            <p>{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -96,11 +97,11 @@
                             {{-- <input name="angkatan" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Pilih Angkatan" required value="{{ old('angkatan') }}" /> --}}
                             <select name="angkatan" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
                                 @foreach ($daftarTahun as $key => $tahun)
-                                    <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
                                 @endforeach
                             </select>
                             @error('angkatan')
-                                <p>{{ $message }}</p>
+                            <p>{{ $message }}</p>
                             @enderror
                         </div>
                     </div>

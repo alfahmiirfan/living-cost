@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Pengeluaran Admin</title>
+    <title>Pengeluaran Admin - Tambah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 <body>
     <x-layout-admin>
@@ -13,7 +14,7 @@
             @csrf
             <div class=" ">
                 <div class="">
-                    <a href="PengeluaranSuperAdmin">
+                    <a href="PengeluaranAdmin">
                         <button type="button" class="pl-2 px-5 py-1 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15 23.75L6.25 15L15 6.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -45,7 +46,7 @@
                 <div class="w-[25%] pr-6">
                     <h1 class="text-lg font-light">Kategori</h1>
                     <div class="max-w-sm mx-auto">
-                        <select name="kategori" id="kategori" class="bg-gray-50 border border-gray-300  text-sm font-light rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                        <select name="kategori" id="kategori" class="bg-gray-50 border border-gray-300  text-sm font-light rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             @foreach ($kategori as $item)
                             <option value="{{ $item['id'] }}">{{ $item['nama'] }}</option>
                             @endforeach

@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Laporan Keuangan</title>
+    <title>Laporan Keuangan - Kategori</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
     <style>
         @media print {
             body {
@@ -21,6 +22,7 @@
                 top: 0;
             }
         }
+
     </style>
 </head>
 
@@ -62,13 +64,13 @@
                         <div id="dropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                 @foreach ($daftarBulan as $item)
-                                    <li>
-                                        <form action="">
-                                            <input type="hidden" name="tahun" value="{{ request()->query('tahun') }}">
-                                            <input type="hidden" name="bulan" value="{{ $item }}">
-                                            <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $namaBulan[(int) $item - 1] ?? '' }}</button>
-                                        </form>
-                                    </li>
+                                <li>
+                                    <form action="">
+                                        <input type="hidden" name="tahun" value="{{ request()->query('tahun') }}">
+                                        <input type="hidden" name="bulan" value="{{ $item }}">
+                                        <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $namaBulan[(int) $item - 1] ?? '' }}</button>
+                                    </form>
+                                </li>
                                 @endforeach
                                 {{-- <li>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Februari</a>
@@ -126,12 +128,12 @@
                         <div id="dropdown-years" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownYears">
                                 @foreach ($daftarTahun as $item)
-                                    <li>
-                                        <form action="">
-                                            <input type="hidden" name="bulan" value="{{ $item }}">
-                                            <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item }}</button>
-                                        </form>
-                                    </li>
+                                <li>
+                                    <form action="">
+                                        <input type="hidden" name="bulan" value="{{ $item }}">
+                                        <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item }}</button>
+                                    </form>
+                                </li>
                                 @endforeach
                                 {{-- <li>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2023</a>
@@ -184,31 +186,31 @@
                 </thead>
                 <tbody>
                     @php
-                        $index = 1;
+                    $index = 1;
                     @endphp
                     @foreach ($pengeluaran as $tanggal => $item)
-                        @foreach ($item->pluck('kategori')->flatten()->unique()->toArray() as $kategori)
-                            <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                                <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                                    {{ $index }}
-                                </th>
-                                <td class="px-6 py-2">
-                                    {{ $kategori }}
-                                </td>
-                                <td class="px-6 py-2">
-                                    {{ $item->where('kategori', $kategori)->count() }}
-                                </td>
-                                <td class="px-6 py-2">
-                                    {{ $item->where('kategori', $kategori)->sum('harga') }}
-                                </td>
-                                <td class="px-6 py-2">
-                                    {{ $tanggal }}
-                                </td>
-                            </tr>
-                            @php
-                                $index++;
-                            @endphp
-                        @endforeach
+                    @foreach ($item->pluck('kategori')->flatten()->unique()->toArray() as $kategori)
+                    <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                            {{ $index }}
+                        </th>
+                        <td class="px-6 py-2">
+                            {{ $kategori }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $item->where('kategori', $kategori)->count() }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $item->where('kategori', $kategori)->sum('harga') }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $tanggal }}
+                        </td>
+                    </tr>
+                    @php
+                    $index++;
+                    @endphp
+                    @endforeach
                     @endforeach
                 </tbody>
             </table>
@@ -243,31 +245,31 @@
                     </thead>
                     <tbody>
                         @php
-                            $index = 1;
+                        $index = 1;
                         @endphp
                         @foreach ($pengeluaran as $tanggal => $item)
-                            @foreach ($item->pluck('kategori')->flatten()->unique()->toArray() as $kategori)
-                                <tr class="border-2">
-                                    <td class="px-3 py-1">
-                                        {{ $index }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $kategori }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->where('kategori', $kategori)->count() }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->where('kategori', $kategori)->sum('harga') }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $tanggal }}
-                                    </td>
-                                </tr>
-                                @php
-                                    $index++;
-                                @endphp
-                            @endforeach
+                        @foreach ($item->pluck('kategori')->flatten()->unique()->toArray() as $kategori)
+                        <tr class="border-2">
+                            <td class="px-3 py-1">
+                                {{ $index }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $kategori }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $item->where('kategori', $kategori)->count() }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $item->where('kategori', $kategori)->sum('harga') }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $tanggal }}
+                            </td>
+                        </tr>
+                        @php
+                        $index++;
+                        @endphp
+                        @endforeach
                         @endforeach
                         {{-- <tr class="border-2">
                             <td class="px-3 py-1">
@@ -314,6 +316,7 @@
         function LaporanPrint() {
             window.print()
         }
+
     </script>
 </body>
 

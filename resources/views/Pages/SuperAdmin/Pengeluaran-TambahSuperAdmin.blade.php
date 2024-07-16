@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Pemasukan Super Admin</title>
+    <title>Pengeluaran Super Admin - Tambah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 <body>
     <x-layout-super-admin>
@@ -45,7 +46,7 @@
                 <div class="w-[25%] pr-6">
                     <h1 class="text-lg font-light">Kategori</h1>
                     <div class="max-w-sm mx-auto">
-                        <select name="kategori" id="kategori" class="bg-gray-50 border border-gray-300  text-sm font-light rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                        <select name="kategori" id="kategori" class="bg-gray-50 border border-gray-300  text-sm font-light rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             @foreach ($kategori as $item)
                             <option value="{{ $item['id'] }}">{{ $item['nama'] }}</option>
                             @endforeach

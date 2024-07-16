@@ -2,13 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Pemasukan Super Admin</title>
+    <title>Pengeluaran Super Admin - Ubah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 <body>
     <x-layout-super-admin>
-        <x-navbar-super-admin title="Pengelolaan Keuangan - Pemasukan" />
+        <x-navbar-super-admin title="Pengelolaan Keuangan - Pengeluaran" />
         <form action="" method="POST">
             @csrf
             <div class=" ">

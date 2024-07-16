@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Pemasukan Super Admin</title>
+    <title>Pendataan Siswa - Ubah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 
 <body>
@@ -70,7 +71,7 @@
                             {{-- <input name="tahun_masuk" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{ $siswa->tahun_masuk }}" /> --}}
                             <select name="tahun_masuk" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required disabled>
                                 @foreach ($daftarTahun as $key => $tahun)
-                                    <option value="{{ $tahun->id }}" @selected($tahun->tahun === $siswa->tahun_masuk)>{{ $tahun->tahun }}</option>
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === $siswa->tahun_masuk)>{{ $tahun->tahun }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -86,7 +87,7 @@
                             {{-- <input name="angkatan" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Pilih Angkatan" required value="{{ $siswa->angkatan }}" /> --}}
                             <select name="angkatan" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required disabled>
                                 @foreach ($daftarTahun as $key => $tahun)
-                                    <option value="{{ $tahun->id }}" @selected($tahun->tahun === $siswa->angkatan)>{{ $tahun->tahun }}</option>
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === $siswa->angkatan)>{{ $tahun->tahun }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Laporan Keuangan</title>
+    <title>Laporan Keuangan - Semua</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
     <style>
         @media print {
             body {
@@ -21,6 +22,7 @@
                 top: 0;
             }
         }
+
     </style>
 </head>
 
@@ -62,13 +64,13 @@
                         <div id="dropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                 @foreach ($daftarBulan as $item)
-                                    <li>
-                                        <form action="">
-                                            <input type="hidden" name="tahun" value="{{ request()->query('tahun') }}">
-                                            <input type="hidden" name="bulan" value="{{ $item }}">
-                                            <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $namaBulan[(int) $item - 1] ?? '' }}</button>
-                                        </form>
-                                    </li>
+                                <li>
+                                    <form action="">
+                                        <input type="hidden" name="tahun" value="{{ request()->query('tahun') }}">
+                                        <input type="hidden" name="bulan" value="{{ $item }}">
+                                        <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $namaBulan[(int) $item - 1] ?? '' }}</button>
+                                    </form>
+                                </li>
                                 @endforeach
                                 {{-- <li>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Februari</a>
@@ -126,12 +128,12 @@
                         <div id="dropdown-years" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownYears">
                                 @foreach ($daftarTahun as $item)
-                                    <li>
-                                        <form action="">
-                                            <input type="hidden" name="bulan" value="{{ $item }}">
-                                            <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item }}</button>
-                                        </form>
-                                    </li>
+                                <li>
+                                    <form action="">
+                                        <input type="hidden" name="bulan" value="{{ $item }}">
+                                        <button type="button" onclick="this.form.submit()" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item }}</button>
+                                    </form>
+                                </li>
                                 @endforeach
                                 {{-- <li>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2023</a>
@@ -191,26 +193,26 @@
                 </thead>
                 <tbody>
                     @foreach ($pengeluaran as $item)
-                        <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                            <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                                {{ $loop->iteration }}
-                            </th>
-                            <td class="px-6 py-2">
-                                {{ $item->nama_item }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $item->kategori }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $item->jumlah }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $item->harga }}
-                            </td>
-                            <td class="px-6 py-2">
-                                {{ $item->tanggal }}
-                            </td>
-                        </tr>
+                    <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                            {{ $loop->iteration }}
+                        </th>
+                        <td class="px-6 py-2">
+                            {{ $item->nama_item }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $item->kategori }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $item->jumlah }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $item->harga }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $item->tanggal }}
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -247,26 +249,26 @@
                         </thead>
                         <tbody>
                             @foreach ($pengeluaran as $item)
-                                <tr class="border-2">
-                                    <td class="px-3 py-1">
-                                        {{ $loop->iteration }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->nama_item }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->kategori }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->jumlah }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->harga }}
-                                    </td>
-                                    <td class="px-3 py-1">
-                                        {{ $item->tanggal }}
-                                    </td>
-                                </tr>
+                            <tr class="border-2">
+                                <td class="px-3 py-1">
+                                    {{ $loop->iteration }}
+                                </td>
+                                <td class="px-3 py-1">
+                                    {{ $item->nama_item }}
+                                </td>
+                                <td class="px-3 py-1">
+                                    {{ $item->kategori }}
+                                </td>
+                                <td class="px-3 py-1">
+                                    {{ $item->jumlah }}
+                                </td>
+                                <td class="px-3 py-1">
+                                    {{ $item->harga }}
+                                </td>
+                                <td class="px-3 py-1">
+                                    {{ $item->tanggal }}
+                                </td>
+                            </tr>
                             @endforeach
                             {{-- <tr class="border-2">
                                 <td class="px-3 py-1">
@@ -320,6 +322,7 @@
         function LaporanPrint() {
             window.print()
         }
+
     </script>
 </body>
 
