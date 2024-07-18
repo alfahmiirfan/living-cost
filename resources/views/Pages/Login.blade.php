@@ -5,6 +5,7 @@
     <title>Login Super Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 <body>
     {{-- <x-auth-layout>
@@ -35,8 +36,8 @@
                         </svg>
                     </div>
                     @error('email')
-                        <div class="text-center text-red-500">{{ $message }}</div>
-                        @enderror
+                    <div class="text-center text-red-500">{{ $message }}</div>
+                    @enderror
                     <div class="flex float-right pb-8">
                         <a href="/LupaPassword" class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all font-light">Lupa Password ?</a>
                     </div>
@@ -61,6 +62,7 @@
                 icon.innerHTML = '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle>'; // Eye icon
             }
         });
+
     </script>
 </body>
 </html>

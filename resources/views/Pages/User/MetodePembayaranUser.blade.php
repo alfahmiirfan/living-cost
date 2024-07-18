@@ -6,6 +6,7 @@
     <title>Metode Pembayaran</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
     <style>
         .bank-option {
             cursor: pointer;
@@ -17,6 +18,7 @@
             border-color: #86B6F6;
             background-color: #B4D4FF;
         }
+
     </style>
 </head>
 
@@ -104,9 +106,11 @@
                 var bankImage = this.getAttribute('data-image');
                 localStorage.setItem('selectedBank', bankName);
                 localStorage.setItem('selectedBankImage', bankImage);
-                document.querySelector('#pay-now').setAttribute('href', '/VirtualAccountUser?id={{ request()->query('id') }}&bank=' + bankName);
+                document.querySelector('#pay-now').setAttribute('href', '/VirtualAccountUser?id={{ request()->query('
+                    id ') }}&bank=' + bankName);
             });
         });
+
     </script>
 </body>
 

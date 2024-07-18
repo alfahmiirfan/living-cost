@@ -6,6 +6,7 @@
     <title>Pembayaran Living Cost</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 
 <body>
@@ -34,9 +35,9 @@
             <div id="dropdown-years" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownYears">
                     @foreach ($years as $key => $year)
-                        <li>
-                            <a href="/PembayaranUser?year={{ $year }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</a>
-                        </li>
+                    <li>
+                        <a href="/PembayaranUser?year={{ $year }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</a>
+                    </li>
                     @endforeach
                 </ul>
             </div>
@@ -120,28 +121,28 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $key => $item)
-                        <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                            <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                                {{ ((request()->query('page') ?? 1) - 1) * 6 + $loop->iteration }}
-                            </th>
-                            <td class="px-2 py-2">
-                                {{ $item->year }}
-                            </td>
-                            <td class="px-2 py-2">
-                                {{ $item->month }}
-                            </td>
-                            <td class="px-2 py-2">
-                                @if (strtolower($item->status) === 'belum bayar')
-                                    <div class="flex">
-                                        <a href="/MetodePembayaranUser?id={{ $item->id }}">
-                                            <button type="submit" class="hover:bg-yale-blue-300 focus:ring-yale-blue-400 dark:bg-yale-blue-600 dark:hover:bg-yale-blue-700 dark:focus:ring-yale-blue-800 inline-flex items-center rounded-lg bg-[#085288] px-5 py-2 text-center text-sm font-medium text-white focus:outline-none focus:ring-4">
-                                                <span class="">Bayar</span>
-                                            </button>
-                                        </a>
-                                    </div>
-                                @endif
-                            </td>
-                        </tr>
+                    <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                            {{ ((request()->query('page') ?? 1) - 1) * 6 + $loop->iteration }}
+                        </th>
+                        <td class="px-2 py-2">
+                            {{ $item->year }}
+                        </td>
+                        <td class="px-2 py-2">
+                            {{ $item->month }}
+                        </td>
+                        <td class="px-2 py-2">
+                            @if (strtolower($item->status) === 'belum bayar')
+                            <div class="flex">
+                                <a href="/MetodePembayaranUser?id={{ $item->id }}">
+                                    <button type="submit" class="hover:bg-yale-blue-300 focus:ring-yale-blue-400 dark:bg-yale-blue-600 dark:hover:bg-yale-blue-700 dark:focus:ring-yale-blue-800 inline-flex items-center rounded-lg bg-[#085288] px-5 py-2 text-center text-sm font-medium text-white focus:outline-none focus:ring-4">
+                                        <span class="">Bayar</span>
+                                    </button>
+                                </a>
+                            </div>
+                            @endif
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
