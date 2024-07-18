@@ -17,7 +17,7 @@ class PemasukanController extends Controller
             if ($request->search) {
                 $query->whereAny(['name', 'nisn', 'month', 'status', 'upload_date'], 'LIKE', `%{$request->search}%`);
             }
-        })->get();
+        })->paginate(5);
 
         $harga = Harga::firstOrFail();
 

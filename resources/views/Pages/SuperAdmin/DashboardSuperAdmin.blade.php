@@ -123,7 +123,7 @@
                                         labels: ["Pelunasan", "Belum Bayar", "Telat Bayar"]
                                         , datasets: [{
                                             label: "Jumlah "
-                                            , data: [70, 30, 25]
+                                            , data: [{{$lunas}}, {{$belumbayar}}, {{$telatbayar}}]
                                             , backgroundColor: [
                                                 "#32D62F"
                                                 , "#F5E81D"

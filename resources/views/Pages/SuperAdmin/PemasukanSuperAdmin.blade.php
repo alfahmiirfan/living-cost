@@ -144,7 +144,7 @@
                     @foreach ($incomes as $key => $income)
                     <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
                         <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                            {{ $loop->iteration }}
+                            {{ ( is_numeric(request()->query('page')) && request()->query('page') !== null ? (request()->query('page') - 1) * 5 : 0 ) + $loop->iteration }}
                         </th>
                         <td class="px-6 py-2">
                             {{ $income->name }}
@@ -168,6 +168,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $incomes->appends(request()->query())->links() }}
         </div>
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

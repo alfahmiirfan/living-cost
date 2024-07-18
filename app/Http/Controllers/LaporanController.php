@@ -39,7 +39,7 @@ class LaporanController extends Controller
                 if ($request->pencarian) {
                     $query->whereAny(['name', 'category'], 'LIKE', "%{$request->pencarian}%");
                 }
-            })->orderBy('date', 'desc')->get();
+            })->orderBy('date', 'desc')->paginate(5);
 
         $namaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Income;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -11,7 +12,10 @@ class GeneralPage extends Controller
     // super admin
     function dashboardSuperAdmin()
     {
-        return view('Pages/SuperAdmin/DashboardSuperAdmin');
+        $belumbayar=Income::where('status', 'LIKE', '%belum bayar%')->count();
+        $telatbayar=Income::where('status', 'LIKE', '%telat bayar%')->count();
+        $lunas=Income::where('status', 'LIKE', '%lunas%')->count();
+        return view('Pages/SuperAdmin/DashboardSuperAdmin', compact('belumbayar','telatbayar','lunas'));
     }
     // function PemasukanSuperAdmin()
     // {
