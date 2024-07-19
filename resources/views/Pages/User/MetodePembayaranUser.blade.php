@@ -95,6 +95,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
+    let id = {!! request()->query('id') !!};
         document.querySelectorAll('.bank-option').forEach(function(element) {
             element.addEventListener('click', function() {
                 document.querySelectorAll('.bank-option').forEach(function(el) {
@@ -106,8 +107,7 @@
                 var bankImage = this.getAttribute('data-image');
                 localStorage.setItem('selectedBank', bankName);
                 localStorage.setItem('selectedBankImage', bankImage);
-                document.querySelector('#pay-now').setAttribute('href', '/VirtualAccountUser?id={{ request()->query('
-                    id ') }}&bank=' + bankName);
+                document.querySelector('#pay-now').setAttribute('href', "/VirtualAccountUser?id="+id+"&bank=" + bankName);
             });
         });
 
