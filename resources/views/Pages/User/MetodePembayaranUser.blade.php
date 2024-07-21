@@ -25,7 +25,7 @@
 <body>
     <x-layout-user>
         <x-navbar-user title="{{ request()->cookie('username') }}" />
-        <div class="pb-4">
+        <div class="pb-4 mt-2">
             <a href="/PembayaranUser">
                 <button type="button" class="inline-flex items-center rounded-lg bg-[#F5E81D] px-5 py-2 pl-2 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

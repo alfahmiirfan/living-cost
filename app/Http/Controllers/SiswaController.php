@@ -36,7 +36,7 @@ class SiswaController extends Controller
         if (auth()->user()->id_number === null) {
             return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin', compact('daftarTahun'));
         }
-        return view('Pages/Admin/PendataanSiswa-TambahAdmin');
+        return view('Pages/Admin/PendataanSiswa-TambahAdmin',compact('daftarTahun'));
     }
     function PendataanUbah(Request $request)
     {
@@ -46,7 +46,7 @@ class SiswaController extends Controller
         if (auth()->user()->id_number === null) {
             return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin', compact('siswa', 'daftarTahun'));
         }
-        return view('Pages/Admin/PendataanSiswa-UbahAdmin', compact('siswa'));
+        return view('Pages/Admin/PendataanSiswa-UbahAdmin', compact('siswa','daftarTahun'));
     }
 
     function tambah(Request $request)

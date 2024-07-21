@@ -79,6 +79,21 @@ class IncomeService implements IIncomeService
     }
 
     /**
+     * @param int $siswa_id
+     * @return array|null
+     */
+    public function GetYears (int $siswa_id) {
+        $data = Income::where('siswa_id', $siswa_id)->orderBy('year')->pluck('year')->flatten()->unique()->toArray();
+
+        if ($data) {
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+
+    /**
      * @param int $page
      * @param int $limit
      * @param string|null $search

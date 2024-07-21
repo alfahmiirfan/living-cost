@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
     <x-layout-admin>
-        <x-navbar-admin title="Pengelolaan Keuangan - Pengeluaran(Tambah)" />
+        <x-navbar-admin title="Pengelolaan Keuangan - Pengeluaran" />
         <form action="" method="POST">
             @csrf
             <div class=" ">
@@ -88,7 +89,7 @@
                         <div class="relative">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                             </div>
-                            <input name="tanggal" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan tanggal" required value="{{old('tanggal')}}" />
+                            <input name="tanggal" type="text" id="tanggal" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan tanggal" required value="{{old('tanggal')}}" />
                             @error('tanggal')
                             <p>{{ $message }}</p>
                             @enderror
@@ -105,6 +106,12 @@
             </div>
         </form>
     </x-layout-admin>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#tanggal", {
+            dateFormat: "Y-m-d",
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>

@@ -68,12 +68,17 @@
                 </div>
                 <div class="w-[25%] pr-6">
                     <h1 class="text-lg font-light">Tahun Masuk</h1>
-                    <div class="pb-6  ">
-                        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
+                    <div class="pb-6">
+                        <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
                         <div class="relative">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
                             </div>
-                            <input name="tahun_masuk" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{old('tahun_masuk')}}" />
+                            {{-- <input name="tahun_masuk" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{old('tahun_masuk')}}" /> --}}
+                            <select name="tahun_masuk" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
+                                @foreach ($daftarTahun as $key => $tahun)
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
+                                @endforeach
+                            </select>
                             @error('tahun_masuk')
                             <p>{{ $message }}</p>
                             @enderror
@@ -82,19 +87,23 @@
                 </div>
                 <div class="w-[25%] pr-6">
                     <h1 class="text-lg font-light">Angkatan</h1>
-                    <div class="pb-6  ">
-                        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
+                    <div class="pb-6">
+                        <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
                         <div class="relative">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
                             </div>
-                            <input name="angkatan" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{old('angkatan')}}" />
+                            {{-- <input name="angkatan" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Pilih Angkatan" required value="{{ old('angkatan') }}" /> --}}
+                            <select name="angkatan" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
+                                @foreach ($daftarTahun as $key => $tahun)
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
+                                @endforeach
+                            </select>
                             @error('angkatan')
                             <p>{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="absolute bottom-10 right-10 flex justify-between items-center rounded-md">
                 <a href="#">
                     <button type="submit" class="px-5 py-1.5 text-sm font-medium text-black inline-flex items-center bg-[#F5E81D] hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 rounded-lg text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">

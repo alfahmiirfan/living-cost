@@ -5,7 +5,7 @@ namespace App\helper;
 class Response
 {
     /**
-     * @param array $data
+     * @param array|bool|string $data
      * @param string|null $message
      * @param int $statusCode
      * 

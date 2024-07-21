@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-grow py-4 pb-6">
+<div class="flex flex-col flex-grow">
     <div class="flex gap-3 items-center">
         <svg width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19 23.0833C24.753 23.0833 29.4167 18.4196 29.4167 12.6667C29.4167 6.9137 24.753 2.25 19 2.25C13.2471 2.25 8.58337 6.9137 8.58337 12.6667C8.58337 18.4196 13.2471 23.0833 19 23.0833Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />

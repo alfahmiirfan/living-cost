@@ -159,7 +159,7 @@ Route::controller(SiswaWebController::class)->group(function () {
     });
 });
 
-Route::controller(PemasukanController::class)->group(function () {
+Route::controller(PemasukanController::class)->middleware('auth:web')->group(function () {
     Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
     Route::post('/PemasukanSuperAdmin', 'updateBiaya');
     Route::get('/PemasukanAdmin', 'pemasukanSuperAdmin');

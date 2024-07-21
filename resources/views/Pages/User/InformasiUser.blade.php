@@ -63,7 +63,7 @@
                 <tbody>
                     @foreach ($data as $key => $item)
                     <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                        <th scope="row" class="whitespace-nowrap px-2 py-2 font-medium text-gray-900 dark:text-white">
                             {{ ((request()->query('page') ?? 1) - 1) * 6  + $loop->iteration }}
                         </th>
                         <td class="px-2 py-2">
@@ -73,14 +73,16 @@
                             {{ $item->month }}
                         </td>
                         <td class="px-2 py-2">
-                            <span class="{{ strtolower($item->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($item->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-6 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $item->status }}</span>
+                            <span class="{{ strtolower($item->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($item->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-2 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $item->status }}</span>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        <div class="mt-2">
         {{ $data->appends(request()->query())->links() }}
+        </div>
 
         <x-tab-user />
     </x-layout-user>

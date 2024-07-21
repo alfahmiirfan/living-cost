@@ -39,6 +39,12 @@ interface IIncomeService
     public function GetBySiswa(int $siswa_id, string|null $year);
 
     /**
+     * @param int $siswa_id
+     * @return [type]
+     */
+    public function GetYears(int $siswa_id);
+
+    /**
      * @param int $page
      * @param int $limit
      * @param string|null $search

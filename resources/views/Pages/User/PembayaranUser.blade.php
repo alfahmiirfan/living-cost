@@ -122,21 +122,21 @@
                 <tbody>
                     @foreach ($data as $key => $item)
                     <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                        <th scope="row" class="whitespace-nowrap px-2 py-2 font-medium text-gray-900 dark:text-white">
                             {{ ((request()->query('page') ?? 1) - 1) * 6 + $loop->iteration }}
                         </th>
-                        <td class="px-2 py-2">
+                        <td class="px-1 py-2">
                             {{ $item->year }}
                         </td>
-                        <td class="px-2 py-2">
+                        <td class="px-1 py-2">
                             {{ $item->month }}
                         </td>
-                        <td class="px-2 py-2">
+                        <td class="px-1 py-2">
                             @if (strtolower($item->status) === 'belum bayar')
                             <div class="flex">
                                 <a href="/MetodePembayaranUser?id={{ $item->id }}">
-                                    <button type="submit" class="hover:bg-yale-blue-300 focus:ring-yale-blue-400 dark:bg-yale-blue-600 dark:hover:bg-yale-blue-700 dark:focus:ring-yale-blue-800 inline-flex items-center rounded-lg bg-[#085288] px-5 py-2 text-center text-sm font-medium text-white focus:outline-none focus:ring-4">
-                                        <span class="">Bayar</span>
+                                    <button type="submit" class="bg-[#085288] py-1 px-3 rounded text-white">
+                                        Bayar
                                     </button>
                                 </a>
                             </div>
@@ -147,7 +147,9 @@
                 </tbody>
             </table>
         </div>
-        {{ $data->appends(request()->query())->links() }}
+        <div class="mt-2">
+            {{ $data->appends(request()->query())->links() }}
+        </div>
 
         <x-tab-user />
     </x-layout-user>

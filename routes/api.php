@@ -30,5 +30,6 @@ Route::prefix('v1')->group(function () {
 
     Route::prefix('income')->group(function () {
         Route::get('/list/siswa', [App\Http\Controllers\Income\GetBySiswaController::class, 'action'])->middleware('siswa');
+        Route::get('/list/tahun', [App\Http\Controllers\Income\GetYearsController::class, 'action'])->middleware('siswa');
     });
 });
