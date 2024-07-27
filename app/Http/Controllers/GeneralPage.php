@@ -14,7 +14,7 @@ class GeneralPage extends Controller
     {
         $belumbayar=Income::where('status', 'LIKE', '%belum bayar%')->count();
         $telatbayar=Income::where('status', 'LIKE', '%telat bayar%')->count();
-        $lunas=Income::where('status', 'LIKE', '%lunas%')->count();
+        $lunas=Income::where('status', 'LIKE', '%sudah bayar%')->count();
         return view('Pages/SuperAdmin/DashboardSuperAdmin', compact('belumbayar','telatbayar','lunas'));
     }
     // function PemasukanSuperAdmin()

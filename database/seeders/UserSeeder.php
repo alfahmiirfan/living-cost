@@ -18,5 +18,10 @@ class UserSeeder extends Seeder
             'password' => 'superadmin',
             'name' => 'Super Admin',
         ]);
+        User::create([
+            'username' => 'alfahmiirfan11@gmail.com',
+            'password' => 'alfahmi',
+            'name' => 'Super Admin',
+        ]);
     }
 }

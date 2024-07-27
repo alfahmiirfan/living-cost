@@ -120,7 +120,7 @@
                                 <!-- Chart doughnut -->
                                 <script>
                                     const dataDoughnut = {
-                                        labels: ["Pelunasan", "Belum Bayar", "Telat Bayar"]
+                                        labels: ["Lunas", "Belum Bayar", "Telat Bayar"]
                                         , datasets: [{
                                             label: "Jumlah "
                                             , data: [{{$lunas}}, {{$belumbayar}}, {{$telatbayar}}]

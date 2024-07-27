@@ -77,9 +77,10 @@ class OtentifikasiController extends Controller
         try {
             $otp = Str::random(6);
 
-            $user->update(['otp' => $otp]);
+            $user->otp = $otp;
+            $user->save();
 
-            Mail::to($user->username)->send(new OtpMailer($user->toArray()));
+            Mail::to($user->username)->send(new OtpMailer(['otp' => $otp]));
         } catch (\Exception $e) {
             $user->update(['otp' => null]);
 
@@ -93,11 +94,11 @@ class OtentifikasiController extends Controller
     public function otpVerifikasi(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,username',
+            // 'email' => 'required|string|max:255|email|exists:users,username',
             'otp' => 'required|string|max:255|exists:users,otp',
         ]);
 
-        $user = User::where('username', $request->email)->where('otp', $request->otp)->firstOrFail();
+        $user = User::where('username', $request->query('email'))->where('otp', $request->otp)->firstOrFail();
 
         // redirect to change password page
         return redirect('/NewPassword?email=' . $user->username . '&otp=' . $user->otp);
@@ -106,12 +107,12 @@ class OtentifikasiController extends Controller
     public function gantiPassword(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|max:255|email|exists:users,username',
-            'otp' => 'required|string|max:255|exists:users,otp',
+            // 'email' => 'required|string|max:255|email|exists:users,username',
+            // 'otp' => 'required|string|max:255|exists:users,otp',
             'kata_sandi' => 'required|string|max:255|confirmed',
         ]);
 
-        $user = User::where('username', $request->email)->where('otp', $request->otp)->firstOrFail();
+        $user = User::where('username', $request->query('email'))->where('otp', $request->query('otp'))->firstOrFail();
 
         $user->update(['password' => $request->kata_sandi, 'otp' => null]);
 
