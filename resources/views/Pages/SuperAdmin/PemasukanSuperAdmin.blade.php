@@ -113,6 +113,10 @@
         </div>
         <!-- component -->
         {{-- Table --}}
+        <div class="flex items-center justify-start gap-2.5">
+            <p>Bulan : {{ $bulan }}</p>
+            <p>Tahun : {{ $tahun }}</p>
+        </div>
         <div class="relative overflow-x-auto">
             <table class="w-full text-left text-sm rtl:text-right">
                 <thead class="bg-yale-blue text-sm uppercase text-white dark:bg-gray-700 dark:text-gray-400">

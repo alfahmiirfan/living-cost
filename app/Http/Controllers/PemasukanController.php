@@ -14,15 +14,23 @@ class PemasukanController extends Controller
         $months = Income::pluck('month')->flatten()->unique()->toArray();
 
         $incomes = Income::where('year', $request->year ?? end($years))->where('month', $request->month ?? end($months))->where(function ($query) use ($request) {
-            if ($request->search) {
-                $query->whereAny(['name', 'nisn', 'month', 'status', 'upload_date'], 'LIKE', `%{$request->search}%`);
+            if ($request->pencarian) {
+                $query->whereAny(['name', 'nisn', 'month', 'status', 'upload_date'], 'LIKE', "%{$request->pencarian}%");
             }
         })->paginate(5);
 
         $harga = Harga::firstOrFail();
 
+        $tahun = $request->year ?? end($years);
+        $bulan = $request->month ?? end($months);
+
+        $request->merge([
+            'year' => $tahun,
+            'month' => $bulan,
+        ]);
+
         if (auth()->user()->id_number === null) {
-            return view('Pages/SuperAdmin/PemasukanSuperAdmin', compact('incomes', 'years', 'harga'));
+            return view('Pages/SuperAdmin/PemasukanSuperAdmin', compact('incomes', 'years', 'harga', 'bulan', 'tahun'));
         }
         return view('Pages/Admin/PemasukanAdmin', compact('incomes', 'years', 'harga'));
     }
