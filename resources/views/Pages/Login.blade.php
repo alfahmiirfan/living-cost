@@ -44,6 +44,14 @@
                     <div class="pt-5 pb-5">
                         <button type="submit" class="bg-[#F5E81D] w-full justify-center pt-2 py-2 rounded-xl hover:bg-yellow-300 hover:-translate-y-1 transition-all duration-500 text-black font-semibold">Login</button>
                     </div>
+                    <div class="flex text-sm ml-2 justify-center">
+                        <div class="flex justify-center font-light">
+                            <h1>Apakah Anda Seorang Siswa ?</h1>
+                        </div>
+                        <div class="flex justify-center">
+                            <a href="/LoginUser" class="text-sm ml-2  hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Login Siswa</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
