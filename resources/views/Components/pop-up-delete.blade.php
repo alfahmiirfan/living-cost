@@ -1,6 +1,6 @@
-<button data-modal-target="popup-modal-{{ $id }}" data-modal-toggle="popup-modal-{{ $id }}" class="" type="button">
+<button data-modal-target="popup-modal-{{ $id }}" data-modal-toggle="popup-modal-{{ $id }}" class="pl-2" type="button">
     <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0.930176" width="30" height="30" rx="5" fill="#F72323" />
+        <rect  width="30" height="30" rx="5" fill="#F72323" />
         <path d="M21.9302 9L9.93018 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         <path d="M9.93018 9L21.9302 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>

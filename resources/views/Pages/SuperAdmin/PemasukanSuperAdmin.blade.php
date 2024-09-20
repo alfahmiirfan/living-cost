@@ -140,7 +140,7 @@
                             Tanggal Bayar
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Aksi
+                            Status
                         </th>
                     </tr>
                 </thead>

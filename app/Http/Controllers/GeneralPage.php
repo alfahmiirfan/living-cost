@@ -21,6 +21,10 @@ class GeneralPage extends Controller
     // {
     //     return view('Pages/SuperAdmin/PemasukanSuperAdmin');
     // }
+    function DetailPembayaranSiswaSuperAdmin()
+    {
+        return view('Pages/SuperAdmin/DetailPembayaranSiswa-SuperAdmin');
+    }
     // function PemasukanStatusSuperAdmin()
     // {
     //     return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');
