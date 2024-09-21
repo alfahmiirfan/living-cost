@@ -7,6 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
+    <style>
+        @media print {
+            body {
+                visibility: hidden;
+            }
+
+            #laporan {
+                display: block;
+                visibility: visible;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -109,6 +125,18 @@
                         </ul>
                     </form>
                 </div>
+                <div class="pl-8">
+                    <button onclick="LaporanPrint()" class="inline-flex items-center rounded-lg bg-[#F5E81D] px-5 py-1 text-center text-sm font-medium text-black hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                        <div class="pr-2">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.42554 9.75V1H22.7021V9.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.42553 21H3.71277C2.9933 21 2.30329 20.7366 1.79455 20.2678C1.28581 19.7989 1 19.163 1 18.5V12.25C1 11.587 1.28581 10.9511 1.79455 10.4822C2.30329 10.0134 2.9933 9.75 3.71277 9.75H25.4149C26.1344 9.75 26.8244 10.0134 27.3331 10.4822C27.8419 10.9511 28.1277 11.587 28.1277 12.25V18.5C28.1277 19.163 27.8419 19.7989 27.3331 20.2678C26.8244 20.7366 26.1344 21 25.4149 21H22.7021" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M22.7021 16H6.42554V26H22.7021V16Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        Rekap Pembayaran
+                    </button>
+                </div>
             </div>
         </div>
         <!-- component -->
@@ -174,6 +202,84 @@
             </table>
             {{ $incomes->appends(request()->query())->links() }}
         </div>
+        <div class="hidden p-16" id="laporan">
+            <div class="">
+                <h1 class="pb-4 text-xl font-bold">Rekap Pembayaran Living Cost SMAN 10 Kaur (Pentagon) </h1>
+                <h1 class="">Bulan : {{ $namaBulan[(int) $bulan - 1] ?? '' }}</h1>
+                <h1 class="">Tahun : {{ $namaTahun[(int) $tahun - 1] ?? '' }}</h1>
+                <h1 class="pb-4 font-bold">Total Pembayaran : </h1>
+                <div class="relative overflow-x-auto">
+                    <table class="w-full border-2 text-left text-sm rtl:text-right">
+                        <thead class="border-2 text-xs uppercase">
+                            <tr>
+                                <th scope="col" class="px-3 py-1">
+                                    No
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Nama
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    NISN
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Tanggal Bayar
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Jumlah Pembayaran
+                                </th>
+                                <th scope="col" class="px-3 py-1">
+                                    Total Tunggakan
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- @foreach ($pengeluaran as $item)
+                            <tr class="border-2">
+                                <td class="px-3 py-1">
+                                    {{ $loop->iteration }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $item->nama_item }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $item->kategori }}
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $item->jumlah }}
+                            </td>
+                            <td class="px-3 py-1">
+                                @currency ($item->harga)
+                            </td>
+                            <td class="px-3 py-1">
+                                {{ $item->tanggal }}
+                            </td>
+                            </tr>
+                            @endforeach --}}
+                            <tr class="border-2">
+                                <td class="px-3 py-1">
+                                    1
+                                </td>
+                                <td class="px-3 py-1">
+                                    Muhammad Alfahmi Irfan
+                                </td>
+                                <td class="px-3 py-1">
+                                    120140206
+                                </td>
+                                <td class="px-3 py-1">
+                                    21/09/2024
+                                </td>
+                                <td class="px-3 py-1">
+                                    Rp. 1.380.000
+                                </td>
+                                <td class="px-3 py-1">
+                                    Rp. 4.140.000
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         <div class="flex absolute bottom-0  pb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copyright">
                 <circle cx="12" cy="12" r="10" />
@@ -185,6 +291,12 @@
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        function LaporanPrint() {
+            window.print()
+        }
+
+    </script>
 </body>
 
 </html>
