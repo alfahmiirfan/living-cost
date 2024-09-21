@@ -70,7 +70,7 @@
                             {{$data['jumlah']}}
                         </td>
                         <td class="px-6 py-2">
-                            {{$data['harga']}}
+                            @currency ($data['harga'])
                         </td>
                         <td class="px-6 py-2">
                             {{$data['tanggal']}}

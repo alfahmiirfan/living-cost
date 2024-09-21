@@ -201,7 +201,7 @@
                             {{ $item->where('kategori', $kategori)->count() }}
                         </td>
                         <td class="px-6 py-2">
-                            {{ $item->where('kategori', $kategori)->sum('harga') }}
+                            @currency ($item->where('kategori', $kategori)->sum('harga'))
                         </td>
                         <td class="px-6 py-2">
                             {{ $tanggal }}
@@ -221,7 +221,7 @@
             <h1 class="pb-4 text-xl font-bold">Laporan Keuangan SMAN 10 Kaur (Pentagon) </h1>
             <h1 class="">Bulan : {{ $namaBulan[(int) $bulan - 1] ?? '' }}</h1>
             <h1 class="pb-4">Jenis : Laporan Per Kategori</h1>
-            <h1 class="pb-4 font-bold">Total Pengeluaran : {{ $jumlahHarga }}</h1>
+            <h1 class="pb-4 font-bold">Total Pengeluaran : @currency($jumlahHarga)</h1>
             <div class="relative overflow-x-auto">
                 <table class="w-full border-2 text-left text-sm rtl:text-right">
                     <thead class="border-2 text-xs uppercase">
@@ -260,7 +260,7 @@
                                 {{ $item->where('kategori', $kategori)->count() }}
                             </td>
                             <td class="px-3 py-1">
-                                {{ $item->where('kategori', $kategori)->sum('harga') }}
+                                @currency($item->where('kategori', $kategori)->sum('harga'))
                             </td>
                             <td class="px-3 py-1">
                                 {{ $tanggal }}
