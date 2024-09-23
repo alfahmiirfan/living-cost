@@ -12,19 +12,19 @@ class GeneralPage extends Controller
     // super admin
     function dashboardSuperAdmin()
     {
-        $belumbayar=Income::where('status', 'LIKE', '%belum bayar%')->count();
-        $telatbayar=Income::where('status', 'LIKE', '%telat bayar%')->count();
-        $lunas=Income::where('status', 'LIKE', '%sudah bayar%')->count();
-        return view('Pages/SuperAdmin/DashboardSuperAdmin', compact('belumbayar','telatbayar','lunas'));
+        $belumbayar = Income::where('status', 'LIKE', '%belum bayar%')->count();
+        $telatbayar = Income::where('status', 'LIKE', '%telat bayar%')->count();
+        $lunas = Income::where('status', 'LIKE', '%sudah bayar%')->count();
+        return view('Pages/SuperAdmin/DashboardSuperAdmin', compact('belumbayar', 'telatbayar', 'lunas'));
     }
     // function PemasukanSuperAdmin()
     // {
     //     return view('Pages/SuperAdmin/PemasukanSuperAdmin');
     // }
-    function DetailPembayaranSiswaSuperAdmin()
-    {
-        return view('Pages/SuperAdmin/DetailPembayaranSiswa-SuperAdmin');
-    }
+    // function DetailPembayaranSiswaSuperAdmin()
+    // {
+    //     return view('Pages/SuperAdmin/DetailPembayaranSiswa-SuperAdmin');
+    // }
     // function PemasukanStatusSuperAdmin()
     // {
     //     return view('Pages/SuperAdmin/Pemasukan-StatusSuperAdmin');

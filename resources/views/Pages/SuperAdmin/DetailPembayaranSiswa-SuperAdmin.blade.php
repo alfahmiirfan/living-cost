@@ -16,11 +16,11 @@
             <table class="">
                 <tr>
                     <td>Nama Siswa</td>
-                    <td class="font-semibold pl-2">: Muhammad Alfahmi Irfan</td>
+                    <td class="pl-2 font-semibold">: {{ $siswa->nama }}</td>
                 </tr>
                 <tr>
                     <td>NISN</td>
-                    <td class="font-semibold pl-2">: 120140206</td>
+                    <td class="pl-2 font-semibold">: {{ $siswa->nisn }}</td>
                 </tr>
                 {{-- <tr>
                     <td>Tahun Masuk</td>
@@ -58,34 +58,36 @@
                 </thead>
                 <tbody>
                     {{-- @foreach ($incomes as $key => $income) --}}
-                    <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                            {{-- {{ ( is_numeric(request()->query('page')) && request()->query('page') !== null ? (request()->query('page') - 1) * 5 : 0 ) + $loop->iteration }} --}}
-                            1
-                        </th>
-                        <td class="px-6 py-2">
-                            2024
-                            {{-- {{ $income->year }} --}}
-                        </td>
-                        <td class="px-6 py-2">
-                            September
-                            {{-- {{ $income->month }} --}}
-                        </td>
-                        <td class="px-6 py-2">
-                            2024-09-12
-                            {{-- {{ $income->upload_date }} --}}
-                        </td>
-                        <td class="px-6 py-2">
-                            Rp. 1.250.000
-                            {{-- {{ $income->upload_date }} --}}
-                        </td>
-                        <td class="px-6 py-2">
-                            <span class="bg-[#32D62F] inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">
-                                Sudah Bayar
-                            </span>
-                            {{-- <span class="   {{ strtolower($income->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($income->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span> --}}
-                        </td>
-                    </tr>
+                    @foreach ($siswa->income as $item)
+                        <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                            <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                                {{-- {{ ( is_numeric(request()->query('page')) && request()->query('page') !== null ? (request()->query('page') - 1) * 5 : 0 ) + $loop->iteration }} --}}
+                                {{ $loop->iteration }}
+                            </th>
+                            <td class="px-6 py-2">
+                                {{ $item->year }}
+                                {{-- {{ $income->year }} --}}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $item->month }}
+                                {{-- {{ $income->month }} --}}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $item->upload_date }}
+                                {{-- {{ $income->upload_date }} --}}
+                            </td>
+                            <td class="px-6 py-2">
+                                Rp. {{ number_format($item->amount, 0, ',', '.') }}
+                                {{-- {{ $income->upload_date }} --}}
+                            </td>
+                            <td class="px-6 py-2">
+                                <span class="{{ strtolower($item->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($item->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">
+                                    {{ $item->status }}
+                                </span>
+                                {{-- <span class="   {{ strtolower($income->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($income->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span> --}}
+                            </td>
+                        </tr>
+                    @endforeach
                     {{-- @endforeach --}}
                 </tbody>
             </table>

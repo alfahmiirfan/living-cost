@@ -21,7 +21,6 @@
                 top: 0;
             }
         }
-
     </style>
 </head>
 
@@ -89,9 +88,9 @@
                         <form id="dropdown-years" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownYears">
                                 @foreach ($years as $key => $year)
-                                <li>
-                                    <button type="submit" name="year" value="{{ $year }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</button>
-                                </li>
+                                    <li>
+                                        <button type="submit" name="year" value="{{ $year }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $year }}</button>
+                                    </li>
                                 @endforeach
                             </ul>
                         </form>
@@ -118,9 +117,9 @@
                         <input type="hidden" name="year" value="{{ request()->query('year') }}">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             @foreach (['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $key => $month)
-                            <li>
-                                <button type="submit" name="month" value="{{ $month }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $month }}</button>
-                            </li>
+                                <li>
+                                    <button type="submit" name="month" value="{{ $month }}" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $month }}</button>
+                                </li>
                             @endforeach
                         </ul>
                     </form>
@@ -174,29 +173,29 @@
                 </thead>
                 <tbody>
                     @foreach ($incomes as $key => $income)
-                    <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
-                        <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
-                            {{ ( is_numeric(request()->query('page')) && request()->query('page') !== null ? (request()->query('page') - 1) * 5 : 0 ) + $loop->iteration }}
-                        </th>
-                        <td class="px-6 py-2">
-                            {{ $income->name }}
-                        </td>
-                        <td class="px-6 py-2">
-                            {{ $income->nisn }}
-                        </td>
-                        <td class="px-6 py-2">
-                            {{ $income->year }}
-                        </td>
-                        <td class="px-6 py-2">
-                            {{ $income->month }}
-                        </td>
-                        <td class="px-6 py-2">
-                            {{ $income->upload_date }}
-                        </td>
-                        <td class="px-6 py-2">
-                            <span class="{{ strtolower($income->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($income->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span>
-                        </td>
-                    </tr>
+                        <tr class="border-b bg-white text-sm dark:border-gray-700 dark:bg-gray-800">
+                            <th scope="row" class="whitespace-nowrap px-6 py-2 font-medium text-gray-900 dark:text-white">
+                                {{ (is_numeric(request()->query('page')) && request()->query('page') !== null ? (request()->query('page') - 1) * 5 : 0) + $loop->iteration }}
+                            </th>
+                            <td class="px-6 py-2">
+                                {{ $income->name }}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $income->nisn }}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $income->year }}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $income->month }}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $income->upload_date }}
+                            </td>
+                            <td class="px-6 py-2">
+                                <span class="{{ strtolower($income->status) === 'belum bayar' ? 'bg-[#F5E81D]' : (strtolower($income->status) === 'sudah bayar' ? 'bg-[#32D62F]' : 'bg-red-600') }} inline-flex items-center rounded-md px-8 py-2 text-xs font-medium text-black ring-1 ring-inset ring-green-600/20">{{ $income->status }}</span>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -205,9 +204,9 @@
         <div class="hidden p-16" id="laporan">
             <div class="">
                 <h1 class="pb-4 text-xl font-bold">Rekap Pembayaran Living Cost SMAN 10 Kaur (Pentagon) </h1>
-                <h1 class="">Bulan : {{ $namaBulan[(int) $bulan - 1] ?? '' }}</h1>
-                <h1 class="">Tahun : {{ $namaTahun[(int) $tahun - 1] ?? '' }}</h1>
-                <h1 class="pb-4 font-bold">Total Pembayaran : </h1>
+                <h1 class="">Bulan : {{ $bulan }}</h1>
+                <h1 class="">Tahun : {{ $tahun }}</h1>
+                <h1 class="pb-4 font-bold">Total Pembayaran : Rp. {{ number_format($total, 0, ',', '.') }}</h1>
                 <div class="relative overflow-x-auto">
                     <table class="w-full border-2 text-left text-sm rtl:text-right">
                         <thead class="border-2 text-xs uppercase">
@@ -228,64 +227,50 @@
                                     Jumlah Pembayaran
                                 </th>
                                 <th scope="col" class="px-3 py-1">
-                                    Total Tunggakan
+                                    Status
                                 </th>
+                                {{-- <th scope="col" class="px-3 py-1">
+                                    Total Tunggakan
+                                </th> --}}
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($pengeluaran as $item)
-                            <tr class="border-2">
-                                <td class="px-3 py-1">
-                                    {{ $loop->iteration }}
-                            </td>
-                            <td class="px-3 py-1">
-                                {{ $item->nama_item }}
-                            </td>
-                            <td class="px-3 py-1">
-                                {{ $item->kategori }}
-                            </td>
-                            <td class="px-3 py-1">
-                                {{ $item->jumlah }}
-                            </td>
-                            <td class="px-3 py-1">
-                                @currency ($item->harga)
-                            </td>
-                            <td class="px-3 py-1">
-                                {{ $item->tanggal }}
-                            </td>
-                            </tr>
-                            @endforeach --}}
-                            <tr class="border-2">
-                                <td class="px-3 py-1">
-                                    1
-                                </td>
-                                <td class="px-3 py-1">
-                                    Muhammad Alfahmi Irfan
-                                </td>
-                                <td class="px-3 py-1">
-                                    120140206
-                                </td>
-                                <td class="px-3 py-1">
-                                    21/09/2024
-                                </td>
-                                <td class="px-3 py-1">
-                                    Rp. 1.380.000
-                                </td>
-                                <td class="px-3 py-1">
+                            @foreach ($incomes as $income)
+                                <tr class="border-2">
+                                    <td class="px-3 py-1">
+                                        {{ $loop->iteration }}
+                                    </td>
+                                    <td class="px-3 py-1">
+                                        {{ $income->name }}
+                                    </td>
+                                    <td class="px-3 py-1">
+                                        {{ $income->nisn }}
+                                    </td>
+                                    <td class="px-3 py-1">
+                                        {{ $income->upload_date }}
+                                    </td>
+                                    <td class="px-3 py-1">
+                                        Rp. {{ number_format($income->amount, 0, ',', '.') }}
+                                    </td>
+                                    <td class="px-3 py-1">
+                                        {{ $income->status }}
+                                    </td>
+                                    {{-- <td class="px-3 py-1">
                                     Rp. 4.140.000
-                                </td>
-                            </tr>
+                                </td> --}}
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <div class="flex absolute bottom-0  pb-2">
+        <div class="absolute bottom-0 flex pb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copyright">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />
             </svg>
-            <h1 class="text-sm font-semibold pr-2 pl-2">Created by Muhammad Alfahmi Irfan | 2024 </h1>
+            <h1 class="pl-2 pr-2 text-sm font-semibold">Created by Muhammad Alfahmi Irfan | 2024 </h1>
             {{-- <h1></h1>? --}}
         </div>
     </x-layout-super-admin>
@@ -295,7 +280,6 @@
         function LaporanPrint() {
             window.print()
         }
-
     </script>
 </body>
 

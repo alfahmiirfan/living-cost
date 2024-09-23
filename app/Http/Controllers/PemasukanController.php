@@ -19,6 +19,12 @@ class PemasukanController extends Controller
             }
         })->paginate(5);
 
+        $total = Income::where('year', $request->year ?? end($years))->where('month', $request->month ?? end($months))->where('status', 'LIKE', 'sudah bayar')->where(function ($query) use ($request) {
+            if ($request->pencarian) {
+                $query->whereAny(['name', 'nisn', 'month', 'status', 'upload_date'], 'LIKE', "%{$request->pencarian}%");
+            }
+        })->sum('amount');
+
         $harga = Harga::firstOrFail();
 
         $tahun = $request->year ?? end($years);
@@ -30,7 +36,7 @@ class PemasukanController extends Controller
         ]);
 
         if (auth()->user()->id_number === null) {
-            return view('Pages/SuperAdmin/PemasukanSuperAdmin', compact('incomes', 'years', 'harga', 'bulan', 'tahun'));
+            return view('Pages/SuperAdmin/PemasukanSuperAdmin', compact('incomes', 'years', 'harga', 'bulan', 'tahun', 'total'));
         }
         return view('Pages/Admin/PemasukanAdmin', compact('incomes', 'years', 'harga'));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SiswaImport;
 use App\Models\Harga;
 use App\Models\Income;
 use App\Models\Month;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
@@ -29,6 +31,14 @@ class SiswaController extends Controller
         }
         return view('Pages/Admin/PendataanSiswaAdmin', compact('siswa'));
     }
+
+    function DetailPembayaranSiswaSuperAdmin(Request $request)
+    {
+        $siswa = Siswa::findOrFail($request->id);
+
+        return view('Pages/SuperAdmin/DetailPembayaranSiswa-SuperAdmin', compact('siswa'));
+    }
+
     function PendataanTambah()
     {
         $daftarTahun = $this->daftarTahun();
@@ -36,7 +46,7 @@ class SiswaController extends Controller
         if (auth()->user()->id_number === null) {
             return view('Pages/SuperAdmin/Pendataan-TambahSuperAdmin', compact('daftarTahun'));
         }
-        return view('Pages/Admin/PendataanSiswa-TambahAdmin',compact('daftarTahun'));
+        return view('Pages/Admin/PendataanSiswa-TambahAdmin', compact('daftarTahun'));
     }
     function PendataanUbah(Request $request)
     {
@@ -46,7 +56,7 @@ class SiswaController extends Controller
         if (auth()->user()->id_number === null) {
             return view('Pages/SuperAdmin/Pendataan-UbahSuperAdmin', compact('siswa', 'daftarTahun'));
         }
-        return view('Pages/Admin/PendataanSiswa-UbahAdmin', compact('siswa','daftarTahun'));
+        return view('Pages/Admin/PendataanSiswa-UbahAdmin', compact('siswa', 'daftarTahun'));
     }
 
     function tambah(Request $request)
@@ -193,5 +203,16 @@ class SiswaController extends Controller
         }
 
         return Year::select(['id', 'year AS tahun'])->orderBy('year')->get();
+    }
+
+    public function importExcel(Request $request)
+    {
+        $request->validate([
+            'excel' => 'bail|required|file'
+        ]);
+
+        Excel::import(new SiswaImport, $request->file('excel'));
+
+        return back();
     }
 }

@@ -79,12 +79,14 @@ use App\Http\Controllers\GeneralPage;
 
 //pendataan siswa super admin
 Route::controller(SiswaController::class)->middleware('superadmin')->group(function () {
+    Route::post('/siswa/excel', 'importExcel')->withoutMiddleware('csrf');
     Route::get('/PendataanSiswaSuperAdmin', 'PendataanSiswa');
     Route::get('/PendataanSiswaSuperAdmin/hapus', 'hapus');
     Route::get('/Pendataan-TambahSuperAdmin', 'PendataanTambah');
     Route::post('/Pendataan-TambahSuperAdmin', 'tambah');
     Route::get('/Pendataan-UbahSuperAdmin', 'PendataanUbah');
     Route::post('/Pendataan-UbahSuperAdmin', 'edit');
+    Route::get('/DetailPembayaranSiswa-SuperAdmin', 'detailpembayaransiswaSuperAdmin');
 });
 //pendataan siswa admin
 Route::controller(SiswaController::class)->middleware('admin')->group(function () {
@@ -98,7 +100,7 @@ Route::controller(SiswaController::class)->middleware('admin')->group(function (
 
 // ### DONE
 Route::controller(AdminController::class)->middleware('superadmin')->group(function () {
-    Route::get('/PengelolaanAdminSuperAdmin'    , 'PengelolaanAdminSuperAdmin');
+    Route::get('/PengelolaanAdminSuperAdmin', 'PengelolaanAdminSuperAdmin');
     Route::get('/PengelolaanAdminSuperAdmin/hapus', 'hapus');
     Route::get('/PengelolaanAdmin-TambahSuperAdmin', 'PengelolaanAdminTambahSuperAdmin');
     Route::post('/PengelolaanAdmin-TambahSuperAdmin', 'tambah');
@@ -163,7 +165,7 @@ Route::controller(PemasukanController::class)->middleware('auth:web')->group(fun
     Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
     Route::post('/PemasukanSuperAdmin', 'updateBiaya');
     Route::get('/PemasukanAdmin', 'pemasukanSuperAdmin');
-    
+
     // Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
     // Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
 });
@@ -172,7 +174,7 @@ Route::controller(GeneralPage::class)->group(function () {
     // super admin
     Route::get('/', 'dashboardSuperAdmin')->middleware('superadmin');
     // Route::get('/PemasukanSuperAdmin', 'pemasukanSuperAdmin');
-    Route::get('/DetailPembayaranSiswa-SuperAdmin', 'detailpembayaransiswaSuperAdmin');
+    // Route::get('/DetailPembayaranSiswa-SuperAdmin', 'detailpembayaransiswaSuperAdmin');
     // Route::get('/Pemasukan-StatusSuperAdmin', 'pemasukanStatusSuperAdmin');
     // Route::get('/Pemasukan-LihatSuperAdmin', 'pemasukanLihatSuperAdmin');
 
