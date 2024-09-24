@@ -74,7 +74,7 @@ class SiswaController extends Controller
 
         $sisaTahun = (int) $angkatan->year + 3 - (int) $tahunMasuk->year;
 
-        if ($angkatan->year > $tahunMasuk->year || $sisaTahun < 0) {
+        if ($angkatan->year > $tahunMasuk->year || $sisaTahun <= 0) {
             return back()->withInput()->withErrors(['angkatan' => 'Angkatan must equal or less than Tahun Masuk']);
         }
 
