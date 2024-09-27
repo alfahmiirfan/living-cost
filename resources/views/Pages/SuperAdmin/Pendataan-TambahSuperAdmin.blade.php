@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="image/logo-sma.png">
 </head>
 
-<body>
+<body onload="yearSelect({{\Carbon\Carbon::now()->format('Y')}}, false)">
     <x-layout-super-admin>
         <x-navbar-super-admin title="Pendataan Siswa    " />
         <form action="" method="POST">
@@ -69,25 +69,6 @@
                     </div>
                 </div>
                 <div class="w-[25%] pr-6">
-                    <h1 class="text-lg font-light">Tahun Masuk</h1>
-                    <div class="pb-6">
-                        <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-                        <div class="relative">
-                            <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                            </div>
-                            {{-- <input name="tahun_masuk" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{old('tahun_masuk')}}" /> --}}
-                            <select name="tahun_masuk" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
-                                @foreach ($daftarTahun as $key => $tahun)
-                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
-                                @endforeach
-                            </select>
-                            @error('tahun_masuk')
-                            <p>{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="w-[25%] pr-6">
                     <h1 class="text-lg font-light">Angkatan</h1>
                     <div class="pb-6">
                         <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
@@ -95,12 +76,31 @@
                             <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
                             </div>
                             {{-- <input name="angkatan" type="search" id="default-search" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Pilih Angkatan" required value="{{ old('angkatan') }}" /> --}}
-                            <select name="angkatan" id="" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
+                            <select name="angkatan" id="angkatan" onchange="yearSelect(this.value)" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
                                 @foreach ($daftarTahun as $key => $tahun)
                                 <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
                                 @endforeach
                             </select>
                             @error('angkatan')
+                            <p>{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[25%] pr-6">
+                    <h1 class="text-lg font-light">Tahun Masuk</h1>
+                    <div class="pb-6">
+                        <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                        <div class="relative">
+                            <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                            </div>
+                            {{-- <input name="tahun_masuk" type="search" id="default-search" class="px-5 py-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Pilih Angkatan" required value="{{old('tahun_masuk')}}" /> --}}
+                            <select name="tahun_masuk" id="tahun_masuk" class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" required>
+                                @foreach ($daftarTahun as $key => $tahun)
+                                <option value="{{ $tahun->id }}" @selected($tahun->tahun === \Carbon\Carbon::now()->format('Y'))>{{ $tahun->tahun }}</option>
+                                @endforeach
+                            </select>
+                            @error('tahun_masuk')
                             <p>{{ $message }}</p>
                             @enderror
                         </div>
@@ -118,6 +118,22 @@
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        function yearSelect(value, id = true) {
+            let years = @json($daftarTahun -> toArray());
+            const select = document.getElementById('tahun_masuk');
+            select.innerHTML = "";
+            for (let year of years) {
+                if (year.id >= value || (Number(year.tahun) >= Number(value) && !id)) {
+                    const option = document.createElement("option");
+                    option.value = year.id;
+                    option.text = year.tahun;
+                    select.appendChild(option);
+                }
+            }
+        }
+
+    </script>
 </body>
 
 </html>
