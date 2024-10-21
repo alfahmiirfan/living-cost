@@ -36,7 +36,7 @@
                     <div class="grid grid-cols-2 gap-8">
                         <a href="/PemasukanSuperAdmin">
                             <div class="flex items-center justify-center h-48 w-70 col-span-1 border-gray-300 rounded-md bg-yale-blue">
-                                <div class="pt-8 justify-items-end flex-row items-center justify-center">
+                                <div class="pt-8 flex-row items-center justify-center">
                                     <div class=" flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" h-20 w-20  text-white lucide lucide-hand-coins">
                                             <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
@@ -54,7 +54,7 @@
                         </a>
                         <a href="PendataanSiswaSuperAdmin">
                             <div class="flex items-center justify-center h-48 w-70 col-span-1 border-gray-300 rounded-md bg-yale-blue">
-                                <div class="pt-8 justify-items-end flex-row items-center justify-center">
+                                <div class="pt-8 flex-row items-center justify-center">
                                     <div class=" flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-20 w-20 text-white lucide lucide-user-round">
                                             <circle cx="12" cy="8" r="5" />
@@ -68,7 +68,7 @@
                         </a>
                         <a href="PengelolaanAdminSuperAdmin">
                             <div class="flex items-center justify-center h-48 w-70 col-span-1 border-gray-300 rounded-md bg-yale-blue">
-                                <div class="pt-8 justify-items-end flex-row items-center justify-center">
+                                <div class="pt-8 flex-row items-center justify-center">
                                     <div class=" flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-20 w-20 text-white lucide lucide-user-round-cog">
                                             <path d="M2 21a8 8 0 0 1 10.434-7.62" />
@@ -92,7 +92,7 @@
                         </a>
                         <a href="LaporanSuperAdmin">
                             <div class="flex items-center justify-center h-48 w-70 col-span-1 border-gray-300 rounded-md bg-yale-blue">
-                                <div class="pt-8 justify-items-end flex-row items-center justify-center">
+                                <div class="pt-8 flex-row items-center justify-center">
                                     <div class=" flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-20 w-20 text-white lucide lucide-book-text">
                                             <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
@@ -153,14 +153,14 @@
 
             </div>
         </div>
-        <div class="flex absolute bottom-0  pb-2">
+        {{-- <div class="flex absolute bottom-0  pb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copyright">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />
             </svg>
             <h1 class="text-sm font-semibold pr-2 pl-2">Created by Muhammad Alfahmi Irfan | 2024 </h1>
-            {{-- <h1></h1>? --}}
-        </div>
+            <h1></h1>?
+        </div> --}}
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

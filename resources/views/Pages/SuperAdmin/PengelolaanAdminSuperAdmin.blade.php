@@ -88,14 +88,14 @@
             </table>
             {{ $admin->links()}}
         </div>
-        <div class="flex absolute bottom-0  pb-2">
+        {{-- <div class="flex absolute bottom-0  pb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copyright">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />
             </svg>
             <h1 class="text-sm font-semibold pr-2 pl-2">Created by Muhammad Alfahmi Irfan | 2024 </h1>
-            {{-- <h1></h1>? --}}
-        </div>
+            <h1></h1>?
+        </div> --}}
     </x-layout-super-admin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
